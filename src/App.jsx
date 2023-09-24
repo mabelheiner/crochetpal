@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <header>
-        <img class='logo' src="./public/images/CrochetPal.png" alt="Crochet Pal Logo" />
+        <img class='logo' src="./images/CrochetPal.png" alt="Crochet Pal Logo" />
         <h1>Welcome to CrochetPal</h1>
       </header>
     </>

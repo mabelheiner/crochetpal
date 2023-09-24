@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Stopwatch from "./Stopwatch";
 import RowCounter from "./RowCounter";
+import './Project.css';
 
 const Project = () => {
     return (

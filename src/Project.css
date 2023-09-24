@@ -1,0 +1,16 @@
+button{
+    font-family: inherit;
+    font-size: 1em;
+    padding: .5em;
+    background-color: #cb6ce6;
+    border-style: none;
+    box-shadow: 1px 1px 1px black;
+    margin: .5em;
+    border-radius: 10%;
+}
+
+.counterDisplay{
+    display: flex;
+    justify-content: center;
+}
+

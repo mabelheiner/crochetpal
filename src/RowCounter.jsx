@@ -16,7 +16,7 @@ class RowCounter extends Component {
 
     decCount = () => {
         this.setState((prevState) => ({
-            count: prevState.count - 1,
+            count: prevState.count > 0 ? prevState.count - 1 : 0,
     }));
     };
 
@@ -25,9 +25,11 @@ class RowCounter extends Component {
         return (
             <>
             <h1>Row Count</h1>
-            <button onClick={this.addCount}>+</button>
-            <p>{count}</p>
-            <button onClick={this.decCount}>-</button>
+            <div className="counterDisplay">
+                <button onClick={this.addCount}>+</button>
+                <p>{count}</p>
+                <button onClick={this.decCount}>-</button>
+            </div>
             </>
         )
     }

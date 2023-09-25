@@ -10,14 +10,16 @@ import SignUp from './SignUp.jsx';
 
 import { createClient } from '@supabase/supabase-js';
 
-/*
-const supabaseUrl = process.env.REACT_APP_SUPABASE_DATABASE_URL;
-const supabaseKey = process.env.REACT_APP_SUPABASE_PUBLIC_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_DATABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLIC_KEY;
+
+console.log('Url: ', supabaseUrl);
+console.log('Key: ', supabaseKey);
 
 const supabase = createClient(
   supabaseUrl,
   supabaseKey,
-); */
+); 
 
 const root = document.getElementById('root');
 const app = (
@@ -26,8 +28,8 @@ const app = (
       <Routes> 
         <Route path="/" element={<App />} />
         <Route path="/project" element={<Project />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login supabase={supabase}/>} />
+        <Route path="/signup" element={<SignUp supabase={supabase}/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

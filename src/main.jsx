@@ -10,6 +10,15 @@ import SignUp from './SignUp.jsx';
 
 import { createClient } from '@supabase/supabase-js';
 
+/*
+const supabaseUrl = process.env.REACT_APP_SUPABASE_DATABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_PUBLIC_KEY;
+
+const supabase = createClient(
+  supabaseUrl,
+  supabaseKey,
+); */
+
 const root = document.getElementById('root');
 const app = (
   <React.StrictMode>
@@ -17,8 +26,8 @@ const app = (
       <Routes> 
         <Route path="/" element={<App />} />
         <Route path="/project" element={<Project />} />
-        <Route path="/login" element={<Project />} />
-        <Route path="/signup" element={<Project />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

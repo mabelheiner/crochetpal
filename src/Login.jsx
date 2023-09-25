@@ -8,8 +8,8 @@ const Login = ({ supabase }) => {
     const handleLogin = async () => {
         try {
             const { user, error } = await supabase.auth.signInWithPassword({
-                email: userEmail,
-                password: userPassword,
+                email: user.userEmail,
+                password: user.userPassword,
             });
             if (error) {
                 console.error('Error logging in:', error.message);

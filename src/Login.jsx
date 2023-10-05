@@ -21,7 +21,7 @@ const Login = () => {
                 const curr_user = await supabase.auth.getSession();
                 const user_data = curr_user.data.session.user
 
-                console.log('Current user: ', user_data.email);
+                console.log('Current user: ', user_data.id);
                 console.log('User logged in:', userEmail);
 
                 setSession(user_data);

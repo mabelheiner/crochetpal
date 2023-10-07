@@ -15,7 +15,6 @@ const SignUp = () => {
     const handleSignup = async () => {
         if (newPassword === confirmPassword) {
             try {
-                // Sign up the user
                 const { data, error } = await supabase.auth.signUp({
                     email: newEmail,
                     password: newPassword,
@@ -30,7 +29,6 @@ const SignUp = () => {
                     return;
                 } else {
             
-                // Insert user data into 'CurrentUsers' table
                 const { data: insertedData, error: insertError } = await supabase
                     .from('CurrentUsers')
                     .insert([

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import { supabase } from "./Supabase";
+import './SignUp.css';
 
 const SignUp = () => {
     const [newEmail, setEmail] = useState('');

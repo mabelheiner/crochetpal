@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
 import { useSession } from './SessionProvider';
 import { supabase } from "./Supabase";
+import './Login.css';
 
 const Login = () => {
     const [userEmail, setEmail] = useState('');

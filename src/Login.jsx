@@ -7,6 +7,7 @@ const Login = () => {
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
     const [session, setSession] = useState(null);  
+    const [error, setError] = useState(null);
     
 
     const handleLogin = async () => {
@@ -17,17 +18,26 @@ const Login = () => {
             });
             if (error) {
                 console.error('Error logging in:', error);
+                setError(error)
             } else {
                 const curr_user = await supabase.auth.getSession();
                 const user_data = curr_user.data.session.user
 
-                console.log('Current user: ', user_data.id);
+                console.log('Current user: ', user_data.email);
+
+                const user_info = await supabase
+                .from('CurrentUsers')
+                .select('*')
+                .eq('email', user_data.email);
+
+                console.log('User info: ', user_info.data[0])
                 console.log('User logged in:', userEmail);
 
-                setSession(user_data);
+                setSession(user_info.data[0]);
             }
         } catch (error) {
             console.error('Error:', error);
+            setError(error);
         }
     };
 
@@ -44,7 +54,7 @@ const Login = () => {
         <>
         {session ? (
             <div>
-                <h1>Welcome, {session.email}!</h1>
+                <h1>Welcome, {session.username}!</h1>
                 <Navbar />
                 <button onClick={handleLogout}>Logout</button>
             </div>
@@ -55,6 +65,11 @@ const Login = () => {
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleLogin}>Login</button>
+        {error ? (
+            <div>
+                <p>{error.message}</p>
+            </div>
+        ):(<></>)}
         <p>Need an account? <a href="signup">Register</a></p>
         </>
         )}

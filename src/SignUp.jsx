@@ -9,43 +9,52 @@ const SignUp = () => {
     const [userName, setUserName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [error, setError] = useState(null);
 
     const handleSignup = async () => {
         if (newPassword === confirmPassword) {
-        try {
-            const { data, error } = await supabase.auth.signUp({
-                email: newEmail,
-                password: newPassword,
-                username: userName,
-                firstName: firstName,
-                lastName: lastName
-            })
-
-            console.log('Data to insert:', { firstName, lastName, userName, newEmail });
-            const { user, err } = await supabase
-            .from('CurrentUsers')
-            .upsert([{
-                firstName: 'Mabel', 
-                lastName: 'Heiner', 
-                userName: 'mabelheiner', 
-                newEmail: 'mabelheiner5@gmail.com'
-            }]);
-            console.log('user signed up: ', firstName);
-
-            if (err){
-                console.log('Error in storing user table: ', err);
+            try {
+                // Sign up the user
+                const { data, error } = await supabase.auth.signUp({
+                    email: newEmail,
+                    password: newPassword,
+                    username: userName,
+                    firstName: firstName,
+                    lastName: lastName
+                });
+            
+                if (error) {
+                    console.log("Error in signing up: ", error.message);
+                    setError(error);
+                    return;
+                } else {
+            
+                // Insert user data into 'CurrentUsers' table
+                const { data: insertedData, error: insertError } = await supabase
+                    .from('CurrentUsers')
+                    .insert([
+                        {
+                            firstName: firstName,
+                            lastName: lastName,
+                            username: userName,
+                            email: newEmail
+                        }
+                    ]);
+                }
+            
+                if (insertError) {
+                    console.log('Error in storing user table: ', insertError.message);
+                } else {
+                    console.log('User signed up and data inserted successfully!');
+                }
+            } catch (error) {
+                console.log('Error: ', error.message);
+                setError(error);
             }
             
-            if (error) {
-                console.log("Error in signing up: ", error.message)
-            } else {
-                console.log('User signed up!');
-            }
-        } catch (error){
-            console.log('Error: ', error.message)
-        }
     } else {
-        alert('passwords do not match!')
+        const error = {message: 'Passwords do not match'};
+        setError(error);
     }
     }
 
@@ -60,6 +69,11 @@ const SignUp = () => {
         <input type="password" placeholder="Password" value={newPassword} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         <button onClick={handleSignup}>Register</button>
+        {error ? (
+            <div>
+                <p>{error.message}</p>
+            </div>
+        ):(<></>)}
         <p>Already have an account? <a href="login">Login</a></p>
         </>
     )

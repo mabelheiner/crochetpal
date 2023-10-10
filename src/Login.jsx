@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import Account from "./Account";
 import { useEffect, useState } from "react";
 import { useSession } from './SessionProvider';
 import { supabase } from "./Supabase";
@@ -54,11 +55,7 @@ const Login = () => {
     return (
         <>
         {session ? (
-            <div>
-                <h1>Welcome, {session.username}!</h1>
-                <Navbar />
-                <button onClick={handleLogout}>Logout</button>
-            </div>
+            <Account />
         ) : (
             <>
         <h1>Login</h1>

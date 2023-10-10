@@ -7,6 +7,7 @@ import Project from './Project.jsx';
 import Login from './Login.jsx';
 import './index.css';
 import SignUp from './SignUp.jsx';
+import Account from './Account.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 
 const root = document.getElementById('root');
@@ -19,6 +20,7 @@ const app = (
           <Route path="/project" element={<Project />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

@@ -1,3 +1,5 @@
+/*page used allow users to sign up, page 3 on canva */
+
 import { useState } from "react";
 import Navbar from "./Navbar";
 import { supabase } from "./Supabase";

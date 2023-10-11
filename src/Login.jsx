@@ -1,3 +1,5 @@
+/*page used allow user to login, page 2 on canva */
+
 import Navbar from "./Navbar";
 import Account from "./Account";
 import { useEffect, useState } from "react";

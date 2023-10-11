@@ -1,3 +1,5 @@
+/*This simply edits the nav bar*/
+
 import { useState, useEffect } from 'react';
 import { supabase } from './Supabase';
 import './Navbar.css';

@@ -1,3 +1,5 @@
+/*Account Page/ User info */
+
 import { useState, useEffect } from 'react';
 import './Account.css';
 import Navbar from './Navbar';

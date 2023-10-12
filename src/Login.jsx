@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSession } from './SessionProvider';
 import { supabase } from "./Supabase";
 import './Login.css';
+import App from "./App";
 
 const Login = () => {
     const [userEmail, setEmail] = useState('');
@@ -45,19 +46,10 @@ const Login = () => {
         }
     };
 
-    const handleLogout = async () => {
-        try {
-            await supabase.auth.signOut();
-            setSession(null);
-        } catch (error) {
-            console.error("Error logging out:", error.message);
-        }
-    };
-
     return (
         <>
         {session ? (
-            <Account />
+            <App />
         ) : (
             <>
         <h1>Login</h1>

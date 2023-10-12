@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import Stopwatch from "./Stopwatch";
 import RowCounter from "./RowCounter";
 import { supabase } from "./Supabase";
-import './Project.css';
+import './tracker.css';
 
 const Project = () => {
     const [session, setSession] = useState(null);

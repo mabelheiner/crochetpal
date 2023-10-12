@@ -1,3 +1,6 @@
+/*page used allow to calculate user prices and time, page 8 on canva */
+
+
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Stopwatch from "./Stopwatch";

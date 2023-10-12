@@ -1,0 +1,6 @@
+/*Account Page/ User info */
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+}

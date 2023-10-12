@@ -1,3 +1,3 @@
 /*page used to show details of our project, page 5 on canva */
 
-import './Details.css';
+import './projectdetails.css';

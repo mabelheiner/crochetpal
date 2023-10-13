@@ -1,6 +1,58 @@
 /*page used to edit our project, page 7 on canva */
-
-
 body{
     background: linear-gradient(to right, #eae6eb, #e69bfd);
-    }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;    
+}
+.content {
+    display: flex;
+}
+
+.rightside {
+    flex: 2;
+    padding: 20px;
+}
+
+#user-header {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.user-description {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.user-textbox {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    margin: 5px 0;
+}
+.leftside {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.image-box {
+    padding: 10px;
+    border: 2px solid #3498db;  
+    border-radius: 20px;       
+    padding: 10px;           
+    width:  100% flex;             
+    margin: 5px 0;
+}
+
+button {
+    margin-top: 2px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    
+}

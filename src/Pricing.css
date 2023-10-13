@@ -1,1 +1,17 @@
 /*page used allow to calculate user prices, page 6 on canva */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.whitebox {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+

@@ -8,6 +8,8 @@ import Login from './Login.jsx';
 import './index.css';
 import SignUp from './SignUp.jsx';
 import Account from './Account.jsx';
+import Tester from './editproject.jsx';
+import Pricing from './Pricing.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 
 const root = document.getElementById('root');
@@ -21,6 +23,8 @@ const app = (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/editproject" element={<Tester />} />
+          <Route path="/pricing" element={<Pricing />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

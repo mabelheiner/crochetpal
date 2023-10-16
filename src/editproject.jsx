@@ -16,7 +16,7 @@ export default function Tester() {
         <Navbar />
     <div class="content">
     <div class="rightside">
-            <header id="user-header" contenteditable="true">Editable User Header</header>
+            <header id="edit-project-title" contenteditable="true">Write your project title here</header>
         <textarea class="projectdescription" placeholder="Write what your project is all about..."></textarea>
             <div class="text-boxes">
                 <textarea class="small_box" placeholder="Write Final Time Here"></textarea>

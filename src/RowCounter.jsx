@@ -26,9 +26,9 @@ class RowCounter extends Component {
             <>
             <h1>Row Count</h1>
             <div className="counterDisplay">
-                <button onClick={this.addCount}>+</button>
+                <button onClick={this.decCount}>-</button>                
                 <p>{count}</p>
-                <button onClick={this.decCount}>-</button>
+                <button onClick={this.addCount}>+</button>
             </div>
             </>
         )

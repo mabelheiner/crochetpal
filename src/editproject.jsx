@@ -8,23 +8,81 @@ import Navbar from "./Navbar";
 
 
 export default function Tester() {
+  const [session, setSession] = useState(null);
+
+  const [projectName, setProjectName] = useState('');
+  const [projectDescription, setProjectDescription] = useState('');
+  const [timeSpent, setTimeSpent] = useState('');
+  const [rowCount, setRowCount] = useState('');
+  const [estimatedPrice, setEstimatedPrice] = useState('');
+  const [projectUrl, setProjectUrl] = useState('');
+
+  useEffect(() => {
+      const fetchUser = async () => {
+      const curr_user = await supabase.auth.getSession();
+      console.log(await supabase.auth.getSession())
+      if (curr_user) {
+          const user_data = curr_user.data.session.user;
+
+          const user_info = await supabase
+          .from('CurrentUsers')
+          .select('*')
+          .eq('email', user_data.email)
+          setSession(user_info.data[0]);
+          console.log('Session: ', session);
+      }
+  }
+
+  fetchUser();
+  }, [])
+
+  const addProject = async () => {
+    console.log('Add project to:', session.id);
+
+    try {
+      const {data, error} = await supabase
+      .from('UserProjects')
+      .insert([
+        {
+          userId: session.id,
+          url: projectUrl,
+          description: projectDescription,
+          name: projectName,
+          estimatedPrice: estimatedPrice,
+          timeSpent: timeSpent,
+          rowCount: rowCount
+        }
+      ])
+
+      setProjectName('');
+      setProjectDescription('');
+      setTimeSpent('');
+      setRowCount('');
+      setEstimatedPrice('');
+      setProjectUrl('');
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
     return (
       <>
         <header>
-          <h1>This is a Test Page</h1>
+          <h1>Edit Project</h1>
         </header>
         <Navbar />
     <div class="content">
     <div class="rightside">
-            <header id="user-header" contenteditable="true">Editable User Header</header>
-        <textarea class="projectdescription" placeholder="Write what your project is all about..."></textarea>
-            <div class="text-boxes">
-                <textarea class="small_box" placeholder="Write Final Time Here"></textarea>
-                <textarea class="small_box" placeholder="Write your Final Row Time Here"></textarea>
-            </div>
-            <div class="leftside">
-            <div class="image-box">Place your project image here... </div>
-            <button>Click Me</button>
+          <div class="text-boxes">
+            <textarea className="small_box" placeholder='Project Name' value={projectName} onChange={(e) => setProjectName(e.target.value)}></textarea>
+            <textarea className="small_box" placeholder="Write what your project is all about..." value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></textarea>            
+            <textarea className="small_box" placeholder="Time previously spent on your project" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></textarea>
+            <textarea className="small_box" placeholder="Write your current row count Here" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></textarea>'
+            <textarea className="small_box" placeholder="Cost of materials" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></textarea>
+            <textarea className="small_box" placeholder='Pattern link here' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></textarea>
+          </div>
+          <div className="leftside">
+            <button onClick={addProject}>Add Project</button>
         </div>
       </div> 
       </div> 

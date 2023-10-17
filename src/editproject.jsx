@@ -84,6 +84,13 @@ export default function Tester() {
           <div className="leftside">
             <button onClick={addProject}>Add Project</button>
         </div>
+        {/* <div className="imagebox-test">
+          <div class ="Card">
+        <h1>Test Box</h1>
+        <img src="images/CrochetPal.png">
+        
+        </div>
+        </div> */}
       </div> 
       </div> 
       </>
@@ -92,44 +99,6 @@ export default function Tester() {
 
 
 
-// const Project = () => {
-//     // const [session, setSession] = useState(null);
-
-//     // useEffect(() => {
-//     //     const fetchUser = async () => {
-//     //     const curr_user = await supabase.auth.getSession();
-//     //     if (curr_user) {
-//     //         const user_data = curr_user.data.session.user;
-
-//     //         const user_info = await supabase
-//     //         .from('CurrentUsers')
-//     //         .select('*')
-//     //         .eq('email', user_data.email)
-//     //         setSession(user_info.data[0]);
-//     //     }
-//     // }
-
-//     // fetchUser();
-//     // }, [])
-//     <h1>Welcome to the project edit page!</h1>
-//     return (
-//         <>
-//         {session ? (
-//             <>
-//             <h1>Welcome to the project edit page!</h1>
-//             <Navbar />
-
-//             </>
-//         ) : (
-//             <>
-//         <h1>Hello from Project Edit Page!</h1>
-//         <Navbar />
-
-//         </>
-//         )}
-//         </>
-//     )
-// }
 
 
 

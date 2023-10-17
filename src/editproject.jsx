@@ -73,7 +73,6 @@ export default function Tester() {
         <Navbar />
     <div class="content">
     <div class="rightside">
-<<<<<<< HEAD
           <div class="text-boxes">
             <textarea className="small_box" placeholder='Project Name' value={projectName} onChange={(e) => setProjectName(e.target.value)}></textarea>
             <textarea className="small_box" placeholder="Write what your project is all about..." value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></textarea>            
@@ -84,17 +83,6 @@ export default function Tester() {
           </div>
           <div className="leftside">
             <button onClick={addProject}>Add Project</button>
-=======
-            <header id="edit-project-title" contenteditable="true">Write your project title here</header>
-        <textarea class="projectdescription" placeholder="Write what your project is all about..."></textarea>
-            <div class="text-boxes">
-                <textarea class="small_box" placeholder="Write Final Time Here"></textarea>
-                <textarea class="small_box" placeholder="Write your Final Row Time Here"></textarea>
-            </div>
-            <div class="leftside">
-            <div class="image-box">Place your project image here... </div>
-            <button>Click Me</button>
->>>>>>> d52e0fbb86584b8915bc772649d0508795e47ecb
         </div>
       </div> 
       </div> 

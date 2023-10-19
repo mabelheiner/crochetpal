@@ -10,6 +10,7 @@ import SignUp from './SignUp.jsx';
 import Account from './Account.jsx';
 import Tester from './editproject.jsx';
 import Pricing from './Pricing.jsx';
+import Home from './Home.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 
 const root = document.getElementById('root');
@@ -18,7 +19,7 @@ const app = (
     <SessionProvider>
       <BrowserRouter basename=''>
         <Routes> 
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Home />} />
           <Route path="/project" element={<Project />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

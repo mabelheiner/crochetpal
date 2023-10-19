@@ -1,2 +1,16 @@
 /*Page used for when user logs into the website, its the first thing they see (slide 4- home on canva)*/
 
+ul.project-list img{
+    width: 100px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.project-list li{
+    border: 1px solid #8900af;
+    margin: 1em;
+    width: 200px;
+}

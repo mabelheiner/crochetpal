@@ -39,7 +39,7 @@ const Home = () => {
                 const projectList = projects.map((project) => 
                 <li>
                     <h2><strong>{project.name}</strong></h2>
-                    <img src='./public/images/Pattern-Placeholder.png' alt={project.name}></img>
+                    <img src={img_src} alt={project.name}></img>
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>{project.description}</p>

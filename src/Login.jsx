@@ -54,6 +54,7 @@ const Login = () => {
             <>
         <h1>Login</h1>
         <Navbar />
+        <div className="login_1">
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleLogin}>Login</button>
@@ -63,6 +64,7 @@ const Login = () => {
             </div>
         ):(<></>)}
         <p>Need an account? <a href="signup">Register</a></p>
+        </div>
         </>
         )}
         </>

@@ -16,11 +16,11 @@ export default function Tester() {
   const [rowCount, setRowCount] = useState('');
   const [estimatedPrice, setEstimatedPrice] = useState('');
   const [projectUrl, setProjectUrl] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
       const fetchUser = async () => {
       const curr_user = await supabase.auth.getSession();
-      console.log(await supabase.auth.getSession())
       if (curr_user) {
           const user_data = curr_user.data.session.user;
 
@@ -28,13 +28,14 @@ export default function Tester() {
           .from('CurrentUsers')
           .select('*')
           .eq('email', user_data.email)
+          
           setSession(user_info.data[0]);
-          console.log('Session: ', session);
+          console.log('Session', session)
+          }
       }
-  }
 
   fetchUser();
-  }, [])
+  }, []);
 
   const addProject = async () => {
     console.log('Add project to:', session.id);
@@ -54,6 +55,11 @@ export default function Tester() {
         }
       ])
 
+      if (error) {
+        console.log(error.message);
+        setError(error);
+      }
+
       setProjectName('');
       setProjectDescription('');
       setTimeSpent('');
@@ -72,14 +78,19 @@ export default function Tester() {
         </header>
         <Navbar />
     <div class="content">
+      {error ? (
+        <div>
+          <p>{error.message}</p>
+        </div>
+      ): (<></>)}
     <div class="rightside">
           <div class="text-boxes">
-            <textarea className="small_box" placeholder='Project Name' value={projectName} onChange={(e) => setProjectName(e.target.value)}></textarea>
-            <textarea className="small_box" placeholder="Write what your project is all about..." value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></textarea>            
-            <textarea className="small_box" placeholder="Time previously spent on your project" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></textarea>
-            <textarea className="small_box" placeholder="Write your current row count Here" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></textarea>'
-            <textarea className="small_box" placeholder="Cost of materials" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></textarea>
-            <textarea className="small_box" placeholder='Pattern link here' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></textarea>
+            <input type="text" className="small_box" placeholder='Project Name' value={projectName} onChange={(e) => setProjectName(e.target.value)}></input>
+            <input type="text" className="small_box" placeholder="Write what your project is all about..." value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></input>            
+            <input type="text" className="small_box" placeholder="Time previously spent on your project" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></input>
+            <input type="text" className="small_box" placeholder="Write your current row count Here" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></input>
+            <input type="text" className="small_box" placeholder="Cost of materials" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></input>
+            <input type="text" className="small_box" placeholder='Pattern link here' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>
           </div>
           <div className="leftside">
             <button onClick={addProject}>Add Project</button>

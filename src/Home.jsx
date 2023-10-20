@@ -11,7 +11,6 @@ const Home = () => {
     const [projects, setProjects] = useState(null);
     const [projectList, setProjectList] = useState(null);
 
-    useEffect(() => {
         const fetchUser = async () => {
             const curr_user = await supabase.auth.getSession();
             if (curr_user) {
@@ -52,8 +51,9 @@ const Home = () => {
             }
         }
 
-    fetchUser();
-    })
+    if (projectList == null){
+        fetchUser();
+    }
 
     return (
         <>

@@ -1,23 +1,27 @@
 /*page used allow user to login, page 2 on canva */
-.whitebox {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 40px;
-    border-radius: 5px;
-    margin-right: 10px;
-}
 
 .login_1 {
     display: flex;
     flex-direction: column;
-    padding: 15px;
     margin: 50px;
     background-color: #ffffff;
-
+    padding: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
 }
 
 button{
-    padding: 15px;
-    margin: 50px;
+    padding: 15em;
+    margin-top: 50px;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+}
+.test{
+    padding-top: 0px;
+}
+
+input{
+    padding: .15em;
+    margin: .15em;
 }

@@ -63,7 +63,9 @@ const Login = () => {
                 <p>{error.message}</p>
             </div>
         ):(<></>)}
+        <div className="test">
         <p>Need an account? <a href="signup">Register</a></p>
+        </div> 
         </div>
         </>
         )}

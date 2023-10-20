@@ -63,6 +63,7 @@ const SignUp = () => {
         <>
         <h1>Welcome to the sign up page</h1>
         <Navbar />
+        <div className="signup">
         <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
         <input type='email' placeholder='Email' value={newEmail} onChange={(e) => setEmail(e.target.value)} />
@@ -74,9 +75,13 @@ const SignUp = () => {
             <div>
                 <p>{error.message}</p>
             </div>
+        
         ):(<></>)}
+        </div>
         <p>Already have an account? <a href="login">Login</a></p>
+        
         </>
+        
     )
 }
 

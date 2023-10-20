@@ -22,7 +22,7 @@ const Home = () => {
                 .eq('email', user_data.email);
 
                 setSession(user_info.data[0]);
-                console.log('Session', session.id);
+                //console.log('Session', session.id);
 
                 const userProjects = await supabase
                 .from('UserProjects')
@@ -30,7 +30,11 @@ const Home = () => {
                 .eq('userId', session.id)
 
                 setProjects(userProjects.data);
-                console.log('Projects', projects);
+                //console.log('Projects', projects);
+
+                const img_src = 'https://poxfdvqxzpsmhcslibty.supabase.co/storage/v1/object/sign/project_images/Pattern-Images/Pattern-Placeholder.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0X2ltYWdlcy9QYXR0ZXJuLUltYWdlcy9QYXR0ZXJuLVBsYWNlaG9sZGVyLnBuZyIsImlhdCI6MTY5Nzc2NjM0MiwiZXhwIjoxNjk4MzcxMTQyfQ.JNch5HO9d1sHU-om8jsbRPnf8Kpl0d8K_TJYfdo5eF0&t=2023-10-20T01%3A45%3A40.666Z';
+
+                console.log('Image', img_src);
 
                 const projectList = projects.map((project) => 
                 <li>

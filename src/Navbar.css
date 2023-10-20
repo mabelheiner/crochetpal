@@ -2,7 +2,16 @@
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    background-color: #c89bc7;
+    border-radius: 40px;
+    border-radius: 15px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
 }
 ul {
     list-style: none;
@@ -12,4 +21,15 @@ ul {
 li {
     display: inline;
     padding: 1em;
+}
+a:link, a:visited {
+    color: blue;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: red;
+    color: white;
 }

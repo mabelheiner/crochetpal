@@ -1,1 +1,9 @@
 /*page used allow user to login, page 2 on canva */
+.whitebox {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+}

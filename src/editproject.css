@@ -5,40 +5,23 @@ body{
     margin: 0;
     padding: 0;    
 }
-.content {
-    display: flex;
-}
 
 .rightside {
     flex: 2;
+    padding: 10px;
+}
+
+input{
+    padding: .15em;
+    margin: .67em;
+}
+
+.leftside {
+    flex: 1;
     padding: 20px;
 }
 
-#edit-project-title {
-    background-color: #f1f1f1;
-    padding: 10px;
-}
-
-.user-description {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.user-textbox {
-    margin-top: 10px;
-}
-
-textarea {
-    width: 100%;
-    margin: 5px 0;
-}
-.leftside {
-    flex: 1;
-    padding: 40px;
-}
-
-.image-box {
+/* .image-box {
     padding: 15px;
     border: 2px solid #3498db;  
     border-radius: 20px;       
@@ -46,7 +29,7 @@ textarea {
     width:  100% flex;             
     margin: 5px 0;
     
-}
+} */
 
 button {
     margin-top: 2px;
@@ -54,5 +37,14 @@ button {
     background-color: #3498db;
     color: #fff;
     border: none;
-    
+}
+
+.text-boxes{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
 }

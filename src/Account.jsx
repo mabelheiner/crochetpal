@@ -38,7 +38,7 @@ const Account = () => {
         <>
         {session ? (
             <>
-        <h1>Welcome to your account, {session.firstName}!</h1>
+        <h1>Welcome, {session.firstName}!</h1>
         <Navbar />
         <h2>Your Account Information:</h2>
         <ul class="account-info">

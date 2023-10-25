@@ -36,14 +36,14 @@ const Home = () => {
                 console.log('Image', img_src);
 
                 const projectList = projects.map((project) => 
-                <li>
+                <li> <a href={`project-details/${project.id}`}>
                     <h2><strong>{project.name}</strong></h2>
                     <img src={img_src} alt={project.name}></img>
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
-                    <p>{project.description}</p>
                     <p>Row Count: {project.rowCount}</p>
                     <p>Time Spent: {project.timeSpent} hours</p>
+                    </a>
                 </li>)
 
                 setProjectList(projectList);

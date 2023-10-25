@@ -11,6 +11,7 @@ import Account from './Account.jsx';
 import Tester from './editproject.jsx';
 import Pricing from './Pricing.jsx';
 import Home from './Home.jsx';
+import ProjectDetails from './projectdetails.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 
 const root = document.getElementById('root');
@@ -26,6 +27,7 @@ const app = (
           <Route path="/account" element={<Account />} />
           <Route path="/editproject" element={<Tester />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/project-details/:id" element={<ProjectDetails />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

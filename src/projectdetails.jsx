@@ -2,7 +2,7 @@
 
 import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
-import './projectdetails.css';
+import './ProjectDetails.css';
 import { supabase } from './Supabase';
 import { useState, useEffect } from 'react';
 

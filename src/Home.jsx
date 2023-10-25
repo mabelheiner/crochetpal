@@ -62,6 +62,16 @@ const Home = () => {
         <header>
             <h1>Home Page</h1>
         </header>
+
+        <div class ="containter">
+            <div id="loader">
+                <div class= "progress">
+                    <div class="indetermined"></div>
+                </div>
+            </div>
+            <div id="app"></div>
+        </div>
+
         <Navbar />
         <ul className='project-list'>{projectList}</ul>
         </>

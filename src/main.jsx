@@ -11,7 +11,7 @@ import Account from './Account.jsx';
 import Tester from './editproject.jsx';
 import Pricing from './Pricing.jsx';
 import Home from './Home.jsx';
-import ProjectDetails from './projectdetails.jsx';
+import ProjectDetails from './ProjectDetails.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 
 const root = document.getElementById('root');

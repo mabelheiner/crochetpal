@@ -11,6 +11,8 @@ const ProjectDetails = () => {
     const [project, setProject] = useState(null);
     const img_src = 'https://poxfdvqxzpsmhcslibty.supabase.co/storage/v1/object/sign/project_images/Pattern-Images/Pattern-Placeholder.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0X2ltYWdlcy9QYXR0ZXJuLUltYWdlcy9QYXR0ZXJuLVBsYWNlaG9sZGVyLnBuZyIsImlhdCI6MTY5Nzc2NjM0MiwiZXhwIjoxNjk4MzcxMTQyfQ.JNch5HO9d1sHU-om8jsbRPnf8Kpl0d8K_TJYfdo5eF0&t=2023-10-20T01%3A45%3A40.666Z';
 
+    const [img_link, setLink] = useState('');
+
     useEffect(() => {
         const fetchProject = async () => {
             try {
@@ -18,6 +20,11 @@ const ProjectDetails = () => {
                     .from('UserProjects')
                     .select('*')
                     .eq('id', params.id);
+
+                const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
+
+                setLink(img_link.data.publicUrl);
+                console.log('image link set', img_link.data.publicUrl);
     
                 if (error) {
                     console.error('Error fetching project:', error);
@@ -40,7 +47,7 @@ const ProjectDetails = () => {
             {project ? (
                 <div>
                     <h2><strong>{project.name}</strong></h2>
-                    <img src={img_src} alt={project.name}></img>
+                    <img src={img_link} alt={project.name}></img>
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>

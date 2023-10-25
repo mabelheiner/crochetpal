@@ -53,7 +53,7 @@ const Login = () => {
         ) : (
             <>
         <h1>Login</h1>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="login_1">
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />

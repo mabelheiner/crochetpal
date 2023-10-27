@@ -42,7 +42,7 @@ const ProjectDetails = () => {
     return (
         <>
             <h1>Welcome to project details</h1>
-            <Navbar />
+            <Navbar active='projectdetails'/>
 
             {project ? (
                 <div>

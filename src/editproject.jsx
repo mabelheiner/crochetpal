@@ -5,7 +5,7 @@ import { supabase } from './Supabase';
 import './editproject.css';
 import Navbar from "./Navbar";
 
-export default function Tester() {
+export default function EditProject() {
   const [session, setSession] = useState(null);
   const [projectName, setProjectName] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
@@ -107,7 +107,7 @@ export default function Tester() {
         <header>
           <h1>Edit Project</h1>
         </header>
-        <Navbar />
+        <Navbar active='editproject'/>
     <div class="content">
       {error ? (
         <div>

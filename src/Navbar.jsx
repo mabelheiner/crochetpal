@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import { supabase } from './Supabase';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [session , setSession] = useState(null);
+    console.log('props.active:', props.active)
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -28,33 +29,21 @@ const Navbar = () => {
         <>
         <h1>Croquet Pals</h1>
         <h4>Croqueing together one step at a time!</h4>
-        {session ? (
-            <div class="underline">
+        <div class="underline">
             <nav>
             <ul>
-                <li class = "active"><a href="/">Home</a></li>
-                <li ><a href="project">Project</a></li>
-                <li><a href="editproject">Edit Project</a></li>
-                <li><a href="pricing">Pricing</a></li>
+                <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
+                <li className={props.active == 'project' ? 'active': null}><a href="project">Project</a></li>
+                <li className={props.active == 'editproject' ? 'active': null}><a href="editproject">Edit Project</a></li>
+                <li className={props.active == 'pricing' ? 'active': null}><a href="pricing">Pricing</a></li>
+        {session ? (
                 <li><a href="account">Account</a></li>
-            </ul>
-            </nav>
-            </div>
-        ): (
-        
-        <div class="underline">
-        <nav>
-            <ul>
-                <li class = "active"><a href="/">Home</a></li>
-                <li ><a href="project">Project</a></li>
-                <li><a href="editproject">Edit Project</a></li>
-                <li><a href="pricing">Pricing</a></li>
+        ):(
                 <li><a href="login">Login</a></li>
-            </ul>
+        )}
+        </ul>
         </nav>
         </div>
-
-        )}
         </>
     )
 }

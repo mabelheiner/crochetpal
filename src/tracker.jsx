@@ -32,14 +32,14 @@ const Project = () => {
         {session ? (
             <>
             <h1>Welcome to the project page, {session.firstName}!</h1>
-            <Navbar />
+            <Navbar active='project'/>
             <Stopwatch />
             <RowCounter />
             </>
         ) : (
             <>
         <h1>Hello from Project Page</h1>
-        <Navbar />
+        <Navbar active='project'/>
         <Stopwatch />
         <RowCounter />
         </>

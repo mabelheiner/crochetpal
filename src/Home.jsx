@@ -74,7 +74,7 @@ const Home = () => {
             <div id="app"></div>
         </div>
 
-        <Navbar />
+        <Navbar active='home'/>
         <ul className='project-list'>{projectList}</ul>
         </>
         ) : (

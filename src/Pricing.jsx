@@ -11,7 +11,7 @@ export default function Pricing() {
         <header>
           <h1>This is a Test Page for Pricing</h1>
         </header>
-        <Navbar />
+        <Navbar active='pricing'/>
 
         <div class="form-container">
         <div class="whitebox">

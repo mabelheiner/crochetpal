@@ -38,10 +38,8 @@ a:hover{
     background-color:#ffffff;
     border-radius: 40px;
     border-radius: 15px;
-    padding: .15em;
-    border-bottom: .13em solid #000000;
     }
 
-.underline li:active{
+.underline li.active{
     border-bottom: .1em solid #000000;
 }

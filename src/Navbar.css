@@ -18,18 +18,30 @@ ul {
     padding: 0;
     margin: 0;
 }
+
 li {
     display: inline;
     padding: 1em;
 }
+
+/* li.active{
+    border-bottom: .1em solid #000000;
+}   */
 a:link, a:visited {
     color: blue;
     text-align: center;
     text-decoration: none;
     display: inline-block;
   }
-  
-  a:hover, a:active {
-    background-color: red;
-    color: white;
+
+a:hover{
+    background-color:#ffffff;
+    border-radius: 40px;
+    border-radius: 15px;
+    padding: .15em;
+    border-bottom: .13em solid #000000;
+    }
+
+.underline li:active{
+    border-bottom: .1em solid #000000;
 }

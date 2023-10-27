@@ -52,8 +52,9 @@ const Login = () => {
             <App />
         ) : (
             <>
-        <h1>Login</h1>
         {/* <Navbar /> */}
+        <h1>Croquet Pals</h1>
+        <h4>Croqueing together one step at a time!</h4>
         <div className="login_1">
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />

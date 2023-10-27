@@ -7,6 +7,7 @@ ul.project-list img{
 ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 ul.project-list li{

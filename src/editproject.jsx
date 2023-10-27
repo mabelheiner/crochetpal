@@ -116,12 +116,23 @@ export default function EditProject() {
       ): (<></>)}
     <div class="rightside">
           <div class="text-boxes">
-            <input type="text" className="small_box" placeholder='Project Name' value={projectName} onChange={(e) => setProjectName(e.target.value)}></input>
-            <input type="text" className="small_box" placeholder="Write what your project is all about..." value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></input>            
-            <input type="text" className="small_box" placeholder="Time previously spent on your project" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></input>
-            <input type="text" className="small_box" placeholder="Write your current row count Here" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></input>
-            <input type="text" className="small_box" placeholder="Cost of materials" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></input>
-            <input type="text" className="small_box" placeholder='Pattern link here' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>
+            <label htmlFor="name">Project Name</label>
+            <input type="text" name='name' className="small_box" placeholder='Blanket' value={projectName} onChange={(e) => setProjectName(e.target.value)}></input>
+            
+            <label htmlFor="notes">Notes on the Project</label>
+            <input type="text" name='notes' className="small_box" placeholder="On row 15, look at youtube tutorial" value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></input>            
+            
+            <label htmlFor="time">Time previously spent on your project</label>
+            <input type="text" name='time' className="small_box" placeholder="2 hours" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></input>
+            
+            <label htmlFor="row">Current Row</label>
+            <input type="text" name='row' className="small_box" placeholder="1" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></input>
+            
+            <label htmlFor="materials">Cost of Materials</label>
+            <input type="text" name='materials' className="small_box" placeholder="$10" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></input>
+            
+            <label htmlFor="link">Pattern Link</label>
+            <input type="text" name='link' className="small_box" placeholder='www.etsy.com' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>
             {/* <input ref={fileInputRef} type="file" accept=".png" onChange={handleFileChange}></input> */}
           </div>
           <div className="leftside">

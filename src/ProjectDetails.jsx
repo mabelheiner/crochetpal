@@ -42,16 +42,17 @@ const ProjectDetails = () => {
     return (
         <>
             <h1>Welcome to project details</h1>
-            <Navbar active='projectdetails'/>
+            <Navbar active='home'/>
 
             {project ? (
-                <div>
+                <div className='project'>
                     <h2><strong>{project.name}</strong></h2>
                     <img src={img_link} alt={project.name}></img>
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>
                     <p>Time Spent: {project.timeSpent} hours</p>
+                    <a href={`/project/${project.id}`}>Track Project</a>
                 </div>
             ) : null}
         </>

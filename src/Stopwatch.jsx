@@ -53,7 +53,7 @@ export default class Stopwatch extends Component {
         const {isRunning, elapsedTime} = this.state;
         return (
             <>
-            <h1>{this.formatTime(elapsedTime)}</h1>
+            <h2>{this.formatTime(elapsedTime)}</h2>
             <button onClick={this.startTimer} disabled={isRunning}>Start</button>
             <button onClick={this.stopTimer} disabled={!isRunning}>Stop</button>
             <button onClick={this.resetTimer}>Reset</button>

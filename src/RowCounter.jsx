@@ -24,10 +24,9 @@ class RowCounter extends Component {
         const { count } = this.state;
         return (
             <>
-            <h1>Row Count</h1>
             <div className="counterDisplay">
                 <button onClick={this.decCount}>-</button>                
-                <p>{count}</p>
+                <h2>{count}</h2>
                 <button onClick={this.addCount}>+</button>
             </div>
             </>

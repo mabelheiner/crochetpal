@@ -3,5 +3,13 @@
 
 body{
     background: linear-gradient(to right, #eae6eb, #e69bfd);
-    }
+}
+
+.project img {
+    width: 150px;
+}
+
+.project {
+    margin-top: 20px;
+}
     

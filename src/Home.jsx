@@ -37,7 +37,7 @@ const Home = () => {
 
                 console.log('Image', img_src);
 
-                const projectList = projects.map((project) => 
+                let projectList = projects.map((project) => 
                 <li> <a href={`project-details/${project.id}`}>
                     <h2><strong>{project.name}</strong></h2>
                     <img src={img_link.data.publicUrl} alt={project.name}></img>
@@ -48,6 +48,14 @@ const Home = () => {
                     </a>
                 </li>)
 
+                const newProject = <li>
+                    <a href={'editproject'}>
+                    <p className='plus'>+</p>
+                    <h2><strong>Add New Project</strong></h2>
+                    </a>
+                </li>
+
+                projectList.unshift(newProject);
                 setProjectList(projectList);
                 
             }

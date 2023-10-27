@@ -16,6 +16,10 @@ ul.project-list li{
     width: 200px;
 }
 
+ul.project-list p.plus{
+    font-size: 8em;
+}
+
 #app{
     display: grid;
     align-items: center;

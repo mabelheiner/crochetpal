@@ -28,7 +28,7 @@ const Navbar = (props) => {
     return (
         <>
         <h1>Crochet Pals</h1>
-        <h4>Crocheting together one stitch at a time!</h4>
+        <p><i>Crocheting together one step at a time!</i></p>
         <div class="underline">
             <nav>
             <ul>

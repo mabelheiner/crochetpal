@@ -61,7 +61,8 @@ const SignUp = () => {
 
     return (
         <>
-        <h1>Welcome to the sign up page</h1>
+        <h1>Crochet Pals</h1>
+        <p><i>Crocheting together one step at a time!</i></p>
         {/* <Navbar /> */}
         <div className="signup">
         <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />

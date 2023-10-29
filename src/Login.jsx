@@ -7,6 +7,7 @@ import { useSession } from './SessionProvider';
 import { supabase } from "./Supabase";
 import './Login.css';
 import App from "./App";
+import Home from './Home';
 
 const Login = () => {
     const [userEmail, setEmail] = useState('');
@@ -49,12 +50,12 @@ const Login = () => {
     return (
         <>
         {session ? (
-            <App />
+            <Home />
         ) : (
             <>
         {/* <Navbar /> */}
-        <h1>Croquet Pals</h1>
-        <h4>Croqueing together one step at a time!</h4>
+        <h1>Crochet Pals</h1>
+        <p><i>Crocheting together one step at a time!</i></p>
         <div className="login_1">
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />

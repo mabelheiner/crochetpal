@@ -41,7 +41,7 @@ const ProjectDetails = () => {
 
     return (
         <>
-            <h1>Welcome to project details</h1>
+            <h1>Project Details</h1>
             <Navbar active='home'/>
 
             {project ? (
@@ -53,6 +53,7 @@ const ProjectDetails = () => {
                     <p>Row Count: {project.rowCount}</p>
                     <p>Time Spent: {project.timeSpent} hours</p>
                     <a href={`/project/${project.id}`}>Track Project</a>
+                    <a href={`/editdetails/${project.id}`}>Edit Project</a>
                 </div>
             ) : null}
         </>

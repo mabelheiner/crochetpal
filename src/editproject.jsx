@@ -14,8 +14,6 @@ export default function EditProject() {
   const [estimatedPrice, setEstimatedPrice] = useState('');
   const [projectUrl, setProjectUrl] = useState('');
   const [error, setError] = useState('');
-  const [file, setFile] = useState(null);
-  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -33,25 +31,6 @@ export default function EditProject() {
     fetchUser();
   }, []);
 
-  const clearFileInput = () => {
-    if (fileInputRef.current && fileInputRef.current.parentNode) {
-      const newFileInput = document.createElement('input');
-      newFileInput.type = 'file';
-      newFileInput.accept = '.png';
-
-      // Replace the existing file input with the new one
-      fileInputRef.current.parentNode.replaceChild(newFileInput, fileInputRef.current);
-
-      // Clear the file state variable
-      setFile(null);
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-  };
-
   const addProject = async () => {
     try {
       const { data, error } = await supabase
@@ -67,22 +46,6 @@ export default function EditProject() {
             rowCount: rowCount,
           },
         ]);
-
-      /* try {
-        if (file) {
-          const { data, file_error } = await supabase.storage
-            .from('project_images')
-            .upload(`Pattern_Images/${file.name}`, file, { contentType: file.type });
-
-          if (file_error) {
-            console.log('Upload failed', file_error.message);
-          } else {
-            console.log('File uploaded successfully', data);
-          }
-        }
-      } catch (f_error) {
-        console.log('Unable to upload', f_error.message);
-      } */
 
       if (error) {
         console.log(error.message);
@@ -105,7 +68,7 @@ export default function EditProject() {
     return (
       <>
         <header>
-          <h1>Edit Project</h1>
+          <h1>Add New Project</h1>
         </header>
         <Navbar active='editproject'/>
     <div class="content">
@@ -133,7 +96,6 @@ export default function EditProject() {
             
             <label htmlFor="link">Pattern Link</label>
             <input type="text" name='link' className="small_box" placeholder='www.etsy.com' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>
-            {/* <input ref={fileInputRef} type="file" accept=".png" onChange={handleFileChange}></input> */}
           </div>
           <div className="leftside">
             <button onClick={addProject}>Add Project</button>

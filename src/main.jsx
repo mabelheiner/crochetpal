@@ -13,6 +13,7 @@ import Home from './Home.jsx';
 import ProjectDetails from './ProjectDetails.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 import EditProject from './editproject.jsx';
+import EditProjectDetails from './EditProjectDetails.jsx';
 
 const root = document.getElementById('root');
 const app = (
@@ -28,6 +29,7 @@ const app = (
           <Route path="/editproject" element={<EditProject />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/project-details/:id" element={<ProjectDetails />} />
+          <Route path="/editdetails/:id" element={<EditProjectDetails />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

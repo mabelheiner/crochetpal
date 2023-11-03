@@ -24,6 +24,10 @@ button{
 input{
     padding: .15em;
     margin: .15em;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;      
+    
 }
 
 h4{

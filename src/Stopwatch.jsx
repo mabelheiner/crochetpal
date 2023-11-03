@@ -1,14 +1,31 @@
 import { Component } from 'react';
+import { supabase } from './Supabase';
 
 export default class Stopwatch extends Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             isRunning: false,
-            elapsedTime: 0,
         }
         this.intervalId = null;
+        this.projectId = props.current_project.id
     }
+
+    async componentDidMount() {
+        try {
+            const startTime = await supabase
+            .from('UserProjects')
+            .select('timeSpent')
+            .eq('id', this.projectId);
+
+            console.log('Starting at...', startTime.data[0].timeSpent)
+            const intStartTime = parseInt(startTime.data[0].timeSpent);
+            this.setState({elapsedTime: intStartTime});
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     componentWillUnmount() {
         this.stopTimer();
     }
@@ -42,6 +59,7 @@ export default class Stopwatch extends Component {
     formatTime = (time) => {
         const seconds = Math.floor((time / 1000) % 60);
         const minutes = Math.floor((time / 600000) % 60);
+
         return (
             String(minutes).padStart(2, '0') +
             ':' +
@@ -49,8 +67,35 @@ export default class Stopwatch extends Component {
         );
     };
 
+    saveTime = async (time) => {
+        console.log('Save Time', time);
+        console.log('Current Project', this.projectId);
+            try {
+                const { data, error } = await supabase
+                .from('UserProjects')
+                .update({ timeSpent: time })
+                .eq('id', this.projectId);
+            }
+            catch (error) {
+                console.log('Error', error.message)
+            }
+            finally {
+                const timeSpent = await supabase
+                .from('UserProjects')
+                .select('timeSpent')
+                .eq('id', this.projectId);
+
+                console.log('Time Spent', timeSpent.data[0].timeSpent);
+            }
+    };
+
     render() {
         const {isRunning, elapsedTime} = this.state;
+
+        if (!isRunning) {
+            this.saveTime(elapsedTime);
+        }
+
         return (
             <>
             <h2>{this.formatTime(elapsedTime)}</h2>

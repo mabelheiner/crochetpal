@@ -29,7 +29,6 @@ const Home = () => {
                 .eq('userId', session.id)
 
                 setProjects(userProjects.data);
-                //console.log('Projects', projects);
 
                 const img_src = 'https://poxfdvqxzpsmhcslibty.supabase.co/storage/v1/object/public/project_images/Pattern-Placeholder.png';
                 const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');

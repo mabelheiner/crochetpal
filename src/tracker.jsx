@@ -47,7 +47,8 @@ const Project = () => {
         {project ? (
             <div className='track'>
                 <h1><strong>{project.name}</strong></h1>
-                <Stopwatch />
+                <img src={img_link} alt={project.name}></img>
+                <Stopwatch current_project={project}/>
                 <RowCounter />
             </div>
 

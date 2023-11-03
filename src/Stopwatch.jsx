@@ -58,9 +58,12 @@ export default class Stopwatch extends Component {
 
     formatTime = (time) => {
         const seconds = Math.floor((time / 1000) % 60);
-        const minutes = Math.floor((time / 600000) % 60);
+        const minutes = Math.floor((time / 60000) % 60);
+        const hours = Math.floor((time / 3600000) % 60);
 
         return (
+            String(hours).padStart(2, '0') + 
+            ':' +
             String(minutes).padStart(2, '0') +
             ':' +
             String(seconds).padStart(2, '0')

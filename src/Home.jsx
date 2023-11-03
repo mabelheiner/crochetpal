@@ -11,6 +11,19 @@ const Home = () => {
     const [projects, setProjects] = useState(null);
     const [projectList, setProjectList] = useState(null);
 
+    const formatTime = (time) => {
+        const seconds = Math.floor((time / 1000) % 60);
+        const minutes = Math.floor((time / 600000) % 60);
+        const hours = Math.floor((time / 3600000) % 60);
+
+        return (
+            String(hours).padStart(2, '0') + 
+            ':' +
+            String(minutes).padStart(2, '0') +
+            ':' +
+            String(seconds).padStart(2, '0')
+        );
+    };
         const fetchUser = async () => {
             const curr_user = await supabase.auth.getSession();
             if (curr_user) {
@@ -36,6 +49,8 @@ const Home = () => {
 
                 console.log('Image', img_src);
 
+                
+
                 let projectList = projects.map((project) => 
                 <li> <a href={`project-details/${project.id}`}>
                     <h2><strong>{project.name}</strong></h2>
@@ -43,7 +58,7 @@ const Home = () => {
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>
-                    <p>Time Spent: {project.timeSpent} hours</p>
+                    <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
                     </a>
                 </li>)
 

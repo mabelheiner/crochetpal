@@ -39,6 +39,20 @@ const ProjectDetails = () => {
         fetchProject(); 
     }, [params.id]);
 
+    const formatTime = (time) => {
+        const seconds = Math.floor((time / 1000) % 60);
+        const minutes = Math.floor((time / 600000) % 60);
+        const hours = Math.floor((time / 3600000) % 60);
+
+        return (
+            String(hours).padStart(2, '0') + 
+            ':' +
+            String(minutes).padStart(2, '0') +
+            ':' +
+            String(seconds).padStart(2, '0')
+        );
+    };
+
     return (
         <>
             <h1>Project Details</h1>
@@ -51,7 +65,7 @@ const ProjectDetails = () => {
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>
-                    <p>Time Spent: {project.timeSpent} hours</p>
+                    <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
                     <a href={`/project/${project.id}`}>Track Project</a>
                     <a href={`/editdetails/${project.id}`}>Edit Project</a>
                 </div>

@@ -68,7 +68,7 @@ const SignUp = () => {
         <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
         <input type='email' placeholder='Email' value={newEmail} onChange={(e) => setEmail(e.target.value)} />
-        <input type="text" placeholder="username" value={userName} onChange={(e) => setUserName(e.target.value)} />
+        <input type="text" placeholder="Username" value={userName} onChange={(e) => setUserName(e.target.value)} />
         <input type="password" placeholder="Password" value={newPassword} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         <button onClick={handleSignup}>Register</button>

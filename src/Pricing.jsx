@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import './Pricing.css';
 import Navbar from "./Navbar";
+import "./index.css";
 
 
 export default function Pricing() {
@@ -22,11 +23,15 @@ export default function Pricing() {
       const estimatedPriceValue = hourlyRate * hoursToComplete + materialsCost + taxValue + shippingValue; setEstimatedPrice(estimatedPriceValue.toFixed(2));});
 
       return (
+        
       <>
+      <Navbar active='pricing'/>
         <header>
+          
+          
           <h1>This is a Test Page for Pricing</h1>
         </header>
-        <Navbar active='pricing'/>
+        
 
         <div class="form-container">
         <div class="whitebox">

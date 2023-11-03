@@ -1,9 +1,11 @@
 /*Main Css to effect all pages */
 
-:root {
+#root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  padding: .002em;
+  /* margin: 0em; */
 }
 
 a {
@@ -16,7 +18,7 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
   display: flex;
   place-items: center;
   background: linear-gradient(to right, #eae6eb, #e69bfd);

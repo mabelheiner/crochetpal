@@ -27,8 +27,8 @@ const Navbar = (props) => {
     }, [])
     return (
         <>
-        <h1>Crochet Pals</h1>
-        <p><i>Crocheting together one step at a time!</i></p>
+        {/* <h1>Crochet Pals</h1>
+        <p><i>Crocheting together one step at a time!</i></p> */}
         <div class="underline">
             <nav>
             <ul>

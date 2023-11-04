@@ -40,14 +40,17 @@ const Account = () => {
             <>
         <h1>Welcome, {session.firstName}!</h1>
         <Navbar />
-        <h2>Your Account Information:</h2>
-        <ul class="account-info">
-            <li><strong>First Name: </strong>{session.firstName}</li>
-            <li><strong>Last Name: </strong>{session.lastName}</li>
-            <li><strong>Username: </strong>{session.username}</li>
-            <li><strong>Email: </strong>{session.email}</li>
-        </ul>
-        <button onClick={handleLogout}>Logout</button>
+        <div className='Account'>
+            <h2>Your Account Information:</h2>
+            <ul class="account-info">
+                <li><strong>First Name: </strong>{session.firstName}</li>
+                <li><strong>Last Name: </strong>{session.lastName}</li>
+                <li><strong>Username: </strong>{session.username}</li>
+                <li><strong>Email: </strong>{session.email}</li>
+            </ul>
+            </div>
+            <button onClick={handleLogout}>Logout</button>
+        
         </>
         ): (
             <Login />

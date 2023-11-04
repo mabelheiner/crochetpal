@@ -55,10 +55,8 @@ const ProjectDetails = () => {
 
     return (
         <>
-            <Navbar active='home'/>
             <h1>Project Details</h1>
-            
-
+            <Navbar active='home'/>
             {project ? (
                 <div className='project'>
                     <h2><strong>{project.name}</strong></h2>

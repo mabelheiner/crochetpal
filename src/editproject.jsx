@@ -10,6 +10,9 @@ export default function EditProject() {
   const [projectName, setProjectName] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
   const [timeSpent, setTimeSpent] = useState('');
+  const [timeHours, setHours] = useState(0);
+  const [timeMinutes, setMinutes] = useState(0);
+  const [timeSeconds, setSeconds] = useState(0);
   const [rowCount, setRowCount] = useState('');
   const [estimatedPrice, setEstimatedPrice] = useState('');
   const [projectUrl, setProjectUrl] = useState('');
@@ -32,6 +35,22 @@ export default function EditProject() {
   }, []);
 
   const addProject = async () => {
+    console.log('Seconds', timeSeconds);
+    console.log('Minutes', timeMinutes)
+    console.log('Hours', timeHours);
+    console.log('Total', Math.floor((parseInt(timeSeconds) * 1000)) + Math.floor((parseInt(timeMinutes) * 60000)) + Math.floor((parseInt(timeHours) * 3600000)));
+    
+    // Calculate total time in milliseconds
+  const totalTimeInMilliseconds =
+    parseInt(timeSeconds) * 1000 +
+    parseInt(timeMinutes) * 60 * 1000 +
+    parseInt(timeHours) * 60 * 60 * 1000;
+
+  // Convert total time to a string before inserting it into the database
+    const totalTimeAsString = totalTimeInMilliseconds.toString();
+    console.log(totalTimeAsString);
+    console.log(totalTimeInMilliseconds);
+    console.log('Current row count', rowCount);
     try {
       const { data, error } = await supabase
         .from('UserProjects')
@@ -42,8 +61,8 @@ export default function EditProject() {
             description: projectDescription,
             name: projectName,
             estimatedPrice: estimatedPrice,
-            timeSpent: timeSpent,
-            rowCount: rowCount,
+            timeSpent: totalTimeInMilliseconds,
+            rowCount: parseInt(rowCount),
           },
         ]);
 
@@ -59,8 +78,6 @@ export default function EditProject() {
       setRowCount('');
       setEstimatedPrice('');
       setProjectUrl('');
-      setFile('');
-      clearFileInput();
     } catch (error) {
       console.log(error.message);
     }
@@ -86,8 +103,15 @@ export default function EditProject() {
             <input type="text" name='notes' className="small_box" placeholder="On row 15, look at youtube tutorial" value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}></input>            
             
             <label htmlFor="time">Time previously spent on your project</label>
-            <input type="text" name='time' className="small_box" placeholder="2 hours" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></input>
-            
+            {/* <input type="text" name='time' className="small_box" placeholder="2 hours" value={timeSpent} onChange={(e) => setTimeSpent(e.target.value)}></input> */}
+            <div className='time'>
+            <input type="number" name='timeHours' className='small_box' placeholder='00' value={timeHours} onChange={(e) => setHours(parseInt(e.target.value))}></input>
+            <p>:</p>
+            <input type="number" name="timeMinutes" className='small_box' placeholder='00' value={timeMinutes} onChange={(e) => setMinutes(parseInt(e.target.value))}></input>
+            <p>:</p>
+            <input type="number" name="timeSeconds" className='small_box' placeholder='00' value={timeSeconds} onChange={(e) => setSeconds(parseInt(e.target.value))}></input>
+            </div>
+
             <label htmlFor="row">Current Row</label>
             <input type="text" name='row' className="small_box" placeholder="1" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></input>
             

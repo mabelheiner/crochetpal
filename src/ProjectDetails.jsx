@@ -41,7 +41,7 @@ const ProjectDetails = () => {
 
     const formatTime = (time) => {
         const seconds = Math.floor((time / 1000) % 60);
-        const minutes = Math.floor((time / 600000) % 60);
+        const minutes = Math.floor((time / 60000) % 60);
         const hours = Math.floor((time / 3600000) % 60);
 
         return (
@@ -55,8 +55,9 @@ const ProjectDetails = () => {
 
     return (
         <>
-            <h1>Project Details</h1>
             <Navbar active='home'/>
+            <h1>Project Details</h1>
+            
 
             {project ? (
                 <div className='project'>

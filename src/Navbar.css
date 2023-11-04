@@ -45,3 +45,9 @@ a:hover{
 .underline li.active{
     border-bottom: .1em solid #000000;
 }
+
+@media only screen  and  (max-width:455px ){
+    li{
+        padding: .5em;
+    }
+}

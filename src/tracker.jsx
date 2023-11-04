@@ -49,7 +49,7 @@ const Project = () => {
                 <h1><strong>{project.name}</strong></h1>
                 <img src={img_link} alt={project.name}></img>
                 <Stopwatch current_project={project}/>
-                <RowCounter />
+                <RowCounter current_project={project}/>
             </div>
 
         ) : null}        

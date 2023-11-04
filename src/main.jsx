@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DeleteProject from './deleteproject.jsx';
 
 import App from './App.jsx';
 import Project from './tracker.jsx';
@@ -30,6 +31,7 @@ const app = (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/project-details/:id" element={<ProjectDetails />} />
           <Route path="/editdetails/:id" element={<EditProjectDetails />} />
+          <Route path="/deleteproject/:id" element={<DeleteProject />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

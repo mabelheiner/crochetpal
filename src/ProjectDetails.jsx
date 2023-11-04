@@ -68,6 +68,7 @@ const ProjectDetails = () => {
                     <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
                     <a href={`/project/${project.id}`}>Track Project</a>
                     <a href={`/editdetails/${project.id}`}>Edit Project</a>
+                    <a href={`/deleteproject/${project.id}`}>Delete Project</a>
                 </div>
             ) : null}
         </>

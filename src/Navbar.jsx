@@ -36,9 +36,9 @@ const Navbar = (props) => {
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/editproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
         {session ? (
-                <li><a href="account">Account</a></li>
+                <li><a href="/account">Account</a></li>
         ):(
-                <li><a href="login">Login</a></li>
+                <li><a href="/login">Login</a></li>
         )}
         </ul>
         </nav>

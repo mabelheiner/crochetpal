@@ -44,10 +44,13 @@ a:hover{
 
 .underline li.active{
     border-bottom: .1em solid #000000;
+<<<<<<< HEAD
 }
 
 @media only screen  and  (max-width:455px ){
     li{
         padding: .5em;
     }
+=======
+>>>>>>> b07bf44c1636ba0573600d689bd4d3c4c67575f5
 }

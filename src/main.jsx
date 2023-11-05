@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DeleteProject from './deleteproject.jsx';
+import DeleteProject from './DeleteProject.jsx';
 
 import App from './App.jsx';
 import Project from './tracker.jsx';

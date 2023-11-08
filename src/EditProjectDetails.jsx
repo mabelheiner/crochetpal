@@ -32,6 +32,9 @@ export default function EditProjectDetails() {
                 } else if (data && data.length > 0) {
                     console.log('project', data[0])
                     setProject(data[0]);
+                    setHours(Math.floor((project.timeSpent / 3600000) % 60));
+                    setMinutes(Math.floor((project.timeSpent / 60000) % 60));
+                    setSeconds(Math.floor((project.timeSpent / 1000) % 60));
                     formatTime(data[0].timeSpent);
                 }
             } catch (error) {
@@ -56,23 +59,42 @@ export default function EditProjectDetails() {
         );
     };
 
-    const saveProject = async () => {
+    const saveProject = async () => {       
+        if (projectName == '') {
+            setProjectName(project.name);
+        }
+        if (projectDescription == '') {
+            setProjectDescription(project.description);
+        }
+        if (projectUrl == '') {
+            setProjectUrl(project.url)
+        }
+        if (estimatedPrice == '') {
+            setEstimatedPrice(project.estimatedPrice)
+        }
+        if (rowCount == '') {
+            setRowCount(project.rowCount)
+        }
+
         const totalTimeInMilliseconds =
         parseInt(timeSeconds) * 1000 +
         parseInt(timeMinutes) * 60 * 1000 +
         parseInt(timeHours) * 60 * 60 * 1000;
 
-        // Convert total time to a string before inserting it into the database
         const totalTimeAsString = totalTimeInMilliseconds.toString();
-        console.log(totalTimeAsString);
-        console.log(totalTimeInMilliseconds);
+        console.log('Total', totalTimeAsString);
+        console.log('total', totalTimeInMilliseconds);
+        console.log('hours', timeHours);
+        console.log('minutes', timeMinutes);
+        console.log('seconds', timeSeconds);
+        console.log('Project Id', params.id);
 
         try {
             const { data, error } = await supabase
               .from('UserProjects')
-              .insert([
+              .update([
                 {
-                  userId: session.id,
+                  userId: project.userId,
                   url: projectUrl,
                   description: projectDescription,
                   name: projectName,
@@ -80,23 +102,36 @@ export default function EditProjectDetails() {
                   timeSpent: totalTimeInMilliseconds,
                   rowCount: parseInt(rowCount),
                 },
-              ]);
+              ])
+              .eq('id', params.id);
       
             if (error) {
               console.log(error.message);
               setError(error);
             }
-
-            setProjectName('');
-            setProjectDescription('');
-            setTimeSpent('');
-            setRowCount('');
-            setEstimatedPrice('');
-            setProjectUrl('');
             console.log('project saved');
         } catch (error) {
             console.log(error.message);
           }
+
+        finally {
+            try {
+                const { data, error } = await supabase
+                    .from('UserProjects')
+                    .select('*')
+                    .eq('id', params.id);
+    
+                if (error) {
+                    console.error('Error fetching project:', error);
+                } else if (data && data.length > 0) {
+                    console.log('project', data[0])
+                    setProject(data[0]);
+                    formatTime(data[0].timeSpent);
+                }
+            } catch (error) {
+                console.error('Error fetching project:', error);
+            }
+        }
     }
 
     return (
@@ -108,28 +143,28 @@ export default function EditProjectDetails() {
                 <div className='rightside'>
                     <div className='text-boxes'>
                     <label htmlFor="name">Project Name</label>
-                    <input type="text" name="name" className='small_box' value={project.name} onChange={(e) => setProjectName(e.target.value)}/>
+                    <input type="text" name="name" className='small_box' placeholder={project.name} onChange={(e) => setProjectName(e.target.value)}/>
 
                     <label htmlFor="notes">Notes on the Project</label>
-                    <input type='text' name='notes' className='small_box' value={project.description} onChange={(e) => setProjectDescription(e.target.value)}/>
+                    <input type='text' name='notes' className='small_box' placeholder={project.description} onChange={(e) => setProjectDescription(e.target.value)}/>
 
                     <label htmlFor="time">Time previously spent on your project</label>
                     <div className='time'>
-                    <input type="number" name='timeHours' className='small_box' placeholder='00' value={timeHours} onChange={(e) => setHours(parseInt(e.target.value))}></input>
+                    <input type="number" name='timeHours' className='small_box' placeholder={timeHours < 10 ? '0' + timeHours : timeHours} onChange={(e) => setHours(parseInt(e.target.value))}></input>
                     <p>:</p>
-                    <input type="number" name="timeMinutes" className='small_box' placeholder='00' value={timeMinutes} onChange={(e) => setMinutes(parseInt(e.target.value))}></input>
+                    <input type="number" name="timeMinutes" className='small_box' placeholder={timeMinutes < 10 ? '0' + timeMinutes : timeMinutes} onChange={(e) => setMinutes(parseInt(e.target.value))}></input>
                     <p>:</p>
-                    <input type="number" name="timeSeconds" className='small_box' placeholder='00' value={timeSeconds} onChange={(e) => setSeconds(parseInt(e.target.value))}></input>
+                    <input type="number" name="timeSeconds" className='small_box' placeholder={timeSeconds < 10 ? '0' + timeSeconds : timeSeconds} onChange={(e) => setSeconds(parseInt(e.target.value))}></input>
                 </div>
 
                     <label htmlFor="row">Current Row</label>
-                    <input type="text" name="row" className='small_box' value={project.rowCount} onChange={(e) => setRowCount(e.target.value)}/>
+                    <input type="text" name="row" className='small_box' placeholder={project.rowCount} onChange={(e) => setRowCount(e.target.value)}/>
 
                     <label htmlFor="price">Estimated Price</label>
-                    <input type='text' name='price' className='small_box' value={project.estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}/>
+                    <input type='text' name='price' className='small_box' placeholder={project.estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}/>
 
                     <label htmlFor="link">Pattern Link</label>
-                    <input type='text' name='link' className='small_box' value={project.url} onChange={(e) => setProjectUrl(e.target.value)}/>
+                    <input type='text' name='link' className='small_box' placeholder={project.url} onChange={(e) => setProjectUrl(e.target.value)}/>
                 </div>
                 <div className='leftside'>
                     <button onClick={saveProject}>Save Project</button>

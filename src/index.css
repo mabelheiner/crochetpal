@@ -41,3 +41,13 @@ h1 {
   background-color : linear-gradient(to right, #eae6eb, #e69bfd);
   }
 }
+
+@media only screen  and  (min-width:300px){
+  h1{
+    font-size: 30px;
+  }
+  body{
+  display:inline;
+  background-color : linear-gradient(to right, #eae6eb, #e69bfd);
+  }
+}

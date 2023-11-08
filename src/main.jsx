@@ -13,7 +13,7 @@ import Pricing from './Pricing.jsx';
 import Home from './Home.jsx';
 import ProjectDetails from './ProjectDetails.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
-import EditProject from './editproject.jsx';
+import AddProject from './addproject.jsx';
 import EditProjectDetails from './EditProjectDetails.jsx';
 
 const root = document.getElementById('root');
@@ -27,8 +27,8 @@ const app = (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/editproject" element={<EditProject />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/addproject" element={<AddProject />} />
+          <Route path="/pricing/:id" element={<Pricing />} />
           <Route path="/project-details/:id" element={<ProjectDetails />} />
           <Route path="/editdetails/:id" element={<EditProjectDetails />} />
           <Route path="/deleteproject/:id" element={<DeleteProject />} />

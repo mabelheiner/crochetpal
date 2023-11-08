@@ -40,7 +40,6 @@ button {
 }
 
 .text-boxes{
-    content: center;
     display: flex;
     flex-direction: column;
     margin: 20px;
@@ -59,15 +58,3 @@ button {
 .time input {
     width: fit-content;
 }
-
-.project{
-    display: flex;
-    flex-direction: column;
-}
-@media only screen  and (max-width:620px){
-   .time{
-    display: block;
-    padding: 0%;
-    margin: 0%;
-   }
-  }

@@ -63,7 +63,7 @@ const Home = () => {
                 </li>)
 
                 const newProject = <li>
-                    <a href={'editproject'}>
+                    <a href={'addproject'}>
                     <p className='plus'>+</p>
                     <h2><strong>Add New Project</strong></h2>
                     </a>

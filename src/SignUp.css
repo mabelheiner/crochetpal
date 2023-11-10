@@ -7,6 +7,9 @@
     padding: 40px;
     border: 1px solid #cccccc;
     border-radius: 40px;
+    width: 40%;
+    margin: auto;
+    margin-top: 1em;
 }
 button{
     padding: 15em;

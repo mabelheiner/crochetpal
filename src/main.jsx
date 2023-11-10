@@ -28,7 +28,7 @@ const app = (
           <Route path="/signup" element={<SignUp />} />
           <Route path="/account" element={<Account />} />
           <Route path="/addproject" element={<AddProject />} />
-          <Route path="/pricing/:id" element={<Pricing />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/project-details/:id" element={<ProjectDetails />} />
           <Route path="/editdetails/:id" element={<EditProjectDetails />} />
           <Route path="/deleteproject/:id" element={<DeleteProject />} />

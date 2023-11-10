@@ -6,15 +6,17 @@
   font-weight: 400;
   padding: .002em;
   /* margin: 0em; */
+  color: #5603AD;
+}
+
+#root button{
+  background-color: #5603AD
 }
 
 a {
   font-weight: 500;
-  color: #8900af;
+  color: #5603AD;
   text-decoration: inherit;
-}
-a:hover {
-  color: #8900af;
 }
 
 body {
@@ -32,6 +34,14 @@ h1 {
   padding-bottom: 30px;
 }
 
+a {
+  color: #5603AD;
+}
+
+header {
+  background-color: black;
+}
+
 @media only screen  and  (max-width:300px){
   h1{
     font-size: 30px;
@@ -40,6 +50,10 @@ h1 {
   display:inline;
   background-color : linear-gradient(to right, #eae6eb, #e69bfd);
   }
+}
+
+button {
+  background-color: #5603AD;
 }
 
 @media only screen  and  (min-width:300px){

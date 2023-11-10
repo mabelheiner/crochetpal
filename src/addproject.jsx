@@ -84,9 +84,6 @@ export default function EditProject() {
   };
     return (
       <>
-        <header>
-          <h1>Add New Project</h1>
-        </header>
         <Navbar active='editproject'/>
     <div class="content">
       {error ? (

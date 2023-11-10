@@ -31,14 +31,18 @@ const Navbar = (props) => {
         <p><i>Crocheting together one step at a time!</i></p> */}
         <div class="underline">
             <nav>
+                <div>
+                    <img src='../public/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
+                    <h2>CrochetPal</h2>
+                </div>
             <ul>
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
         {session ? (
-                <li><a href="/account">Account</a></li>
+                <li className={props.active == 'account' ? 'active': null}><a href="/account">Account</a></li>
         ):(
-                <li><a href="/login">Login</a></li>
+                <li className={props.active == 'login' ? 'active': null}><a href="/login">Login</a></li>
         )}
         </ul>
         </nav>

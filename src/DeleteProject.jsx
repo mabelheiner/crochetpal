@@ -38,6 +38,7 @@ const DeleteProject = () => {
     }, [params.id]);
     return (
         <>
+        <Navbar />
         {project ? (
             <div className='delete'>
              <h1>Are you sure you would like to delete this project?</h1>

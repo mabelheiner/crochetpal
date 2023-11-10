@@ -135,8 +135,7 @@ export default function EditProjectDetails() {
     }
 
     return (
-        <>
-            <h1>Edit Project Details</h1>   
+        <> 
             <Navbar active='home'/>                     
 
             {project ? (

@@ -83,11 +83,7 @@ const Home = () => {
         <>
         {session ? (
             <>
-        <header>
-            <h1>Home Page</h1>
-        </header>
-
-        <div class ="containter">
+        <div class ="container">
             <div id="loader">
                 <div class= "progress">
                     <div class="indetermined"></div>

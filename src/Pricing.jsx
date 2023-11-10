@@ -25,11 +25,7 @@ export default function Pricing() {
       return (
         
       <>
-        <header>
-          <h1>This is a Test Page for Pricing</h1>
-          <Navbar active='pricing'/>
-
-        </header>
+        <Navbar active='pricing'/>
         
 
         <div class="form-container">

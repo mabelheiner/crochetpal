@@ -4,7 +4,8 @@ nav {
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
-    background-color: #c89bc7;
+    background-color: black;
+    width: 100%;
     /* border-radius: 40px;
     border-radius: 15px; */
 }
@@ -29,21 +30,43 @@ li {
 /* li.active{
     border-bottom: .1em solid #000000;
 }   */
-a:link, a:visited {
-    color: blue;
+
+nav h2 {
+    color: #8901AF;
+    padding-left: .5em;
+}
+
+nav img{
+    width: 50px;
+}
+
+nav div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    align-items: center;
+}
+nav a:link, nav a:visited {
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-  }
+}
 
-a:hover{
-    background-color:#ffffff;
-    border-radius: 40px;
-    border-radius: 15px;
-    }
+nav a {
+    transition: background-color 0.3s ease-in-out;
+    padding: .25em;
+    border-radius: 10%;
+}
+nav a:hover{
+    background-color: #333333;
+}
 
-.underline li.active{
-    border-bottom: .1em solid #000000;
+li.active a{
+    color: #8901AF;
 }
 
 @media only screen  and  (max-width:455px ){

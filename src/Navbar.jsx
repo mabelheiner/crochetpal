@@ -32,7 +32,7 @@ const Navbar = (props) => {
         <div class="underline">
             <nav>
                 <div>
-                    <img src='./public/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
+                    <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
                     <h2>CrochetPal</h2>
                 </div>
             <ul>

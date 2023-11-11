@@ -69,35 +69,13 @@ li.active a{
     color: #A343FF;
 }
 
-.ham{
-    display: none;
-    cursor: pointer;
-}
-.bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: white;
-}
-
-@media(max-width:645px ){
-    .ham{
-       display: block; 
-       margin: 45px;
+@media only screen  and  (max-width:455px ){
+    li{
+        padding: .5em;
     }
-    .elements{
-        position: relative;
-        left: -100%; 
-        top: 70px; 
-        gap: 0;
-        flex-direction: column;
-        width: 100%; 
-        text-align: center; 
-        transition: .3s;
-        }
 
-    ul.active {
-        left:0;
+    .ham {
+        font-size: 2em;
+        font-weight: bolder;
     }
 }

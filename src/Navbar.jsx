@@ -25,7 +25,22 @@ const Navbar = (props) => {
 
     fetchUser();
     }, [])
+    
+    const ham = document.querySelector(".ham")
+    const elements = document.querySelector(".elements")
+    ham.addEventListener("click", () => {
+        ham.classList.toggle("active");
+        elements.classList.toggle("active");
+    })
+
+    document.querySelectorAll(".elements").forEach(n => n.
+        addEventListener("click", () => {
+        ham.classList.remove("active");
+        elements.classList.remove("active");
+    }))
+    
     return (
+        
         <>
         {/* <h1>Crochet Pals</h1>
         <p><i>Crocheting together one step at a time!</i></p> */}
@@ -35,7 +50,7 @@ const Navbar = (props) => {
                     <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
                     <h2>CrochetPal</h2>
                 </div>
-            <ul>
+            <ul class="elements">
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
@@ -45,10 +60,19 @@ const Navbar = (props) => {
                 <li className={props.active == 'login' ? 'active': null}><a href="/login">Login</a></li>
         )}
         </ul>
+        <div class="ham"> 
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
         </nav>
+
         </div>
         </>
     )
+
 }
 
 export default Navbar;

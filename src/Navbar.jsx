@@ -6,6 +6,8 @@ import './Navbar.css';
 
 const Navbar = (props) => {
     const [session , setSession] = useState(null);
+    const [HamIsVisible, setHamIsVisible] = useState(true);
+    const [NonHamIsVisible, setNonHamIsVisible] = useState(false);
     console.log('props.active:', props.active)
 
     useEffect(() => {
@@ -25,6 +27,22 @@ const Navbar = (props) => {
 
     fetchUser();
     }, [])
+
+    const hamVisibility = () => {
+        setHamIsVisible(!HamIsVisible);
+        console.log('ham', HamIsVisible);
+        console.log('non', NonHamIsVisible)
+        checkVisibility();
+    }
+
+    const checkVisibility = () => {
+        if (HamIsVisible == true) {
+            setNonHamIsVisible(true);
+        }
+        else {
+            setNonHamIsVisible(false);
+        }
+    }
     return (
         <>
         {/* <h1>Crochet Pals</h1>
@@ -35,7 +53,7 @@ const Navbar = (props) => {
                     <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
                     <h2>CrochetPal</h2>
                 </div>
-            <ul>
+            <ul className='non-ham' style={{display: NonHamIsVisible ? 'block': 'none'}}>
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
@@ -45,6 +63,8 @@ const Navbar = (props) => {
                 <li className={props.active == 'login' ? 'active': null}><a href="/login">Login</a></li>
         )}
         </ul>
+        <button className='ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'block': 'none'}}>&equiv;</button>
+        <button className='ex-ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'none': 'block'}}>X</button>
         </nav>
         </div>
         </>

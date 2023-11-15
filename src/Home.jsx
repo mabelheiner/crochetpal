@@ -5,6 +5,7 @@ import './Home.css';
 import { supabase } from './Supabase';
 import Navbar from './Navbar';
 import Login from './Login';
+import LoadingScreen from './LoadingScreen';
 
 const Home = () => {
     const [session, setSession] = useState(null);
@@ -77,6 +78,7 @@ const Home = () => {
 
     if (projectList == null){
         fetchUser();
+        return <LoadingScreen />
     }
 
     return (

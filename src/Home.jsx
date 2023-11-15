@@ -11,7 +11,7 @@ const Home = () => {
     const [session, setSession] = useState(null);
     const [projects, setProjects] = useState(null);
     const [projectList, setProjectList] = useState(null);
-
+    
     const formatTime = (time) => {
         const seconds = Math.floor((time / 1000) % 60);
         const minutes = Math.floor((time / 60000) % 60);
@@ -80,6 +80,13 @@ const Home = () => {
         fetchUser();
         return <LoadingScreen />
     }
+    // window.addEventListener("load", () => {
+    //     const loader = document.querySelector(".loader");
+    //     loader.classList.add("loader-hidden");
+    //     loader.addEventListener("transitionend", () => {
+    //         document.body.removeChild("loader");
+    //     })
+    // })
 
     return (
         <>

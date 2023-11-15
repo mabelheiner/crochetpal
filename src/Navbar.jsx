@@ -27,7 +27,7 @@ const Navbar = (props) => {
 
     fetchUser();
     }, [])
-
+    
     const hamVisibility = () => {
         setHamIsVisible(!HamIsVisible);
         console.log('ham', HamIsVisible);
@@ -44,6 +44,7 @@ const Navbar = (props) => {
         }
     }
     return (
+        
         <>
         {/* <h1>Crochet Pals</h1>
         <p><i>Crocheting together one step at a time!</i></p> */}
@@ -53,7 +54,9 @@ const Navbar = (props) => {
                     <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
                     <h2>CrochetPal</h2>
                 </div>
+
             <ul className='non-ham' style={{display: NonHamIsVisible ? 'block': 'none'}}>
+
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
@@ -63,12 +66,16 @@ const Navbar = (props) => {
                 <li className={props.active == 'login' ? 'active': null}><a href="/login">Login</a></li>
         )}
         </ul>
+
         <button className='ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'block': 'none'}}>&equiv;</button>
         <button className='ex-ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'none': 'block'}}>X</button>
+
         </nav>
+
         </div>
         </>
     )
+
 }
 
 export default Navbar;

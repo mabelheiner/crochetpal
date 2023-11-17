@@ -77,18 +77,17 @@ export default function EditProject() {
       const { data: fileData, error: fileError } = await supabase
       .storage
       .from('project_images')
-      .upload(`/private/${file.name}`, file, {
+      .upload(`/private/${projectName}`, file, {
         cacheControl: '360000',
         upsert: true,
       });
 
       console.log('File Data', fileData);
-      console.log('File Error', fileError.message);
 
       const { data:getData, error: getError } = await supabase
       .storage
       .from('project_images')
-      .getPublicUrl('Pattern-Placeholder.png');
+      .getPublicUrl(projectName);
 
       console.log('Image data', getData);
 

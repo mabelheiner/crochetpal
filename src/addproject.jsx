@@ -17,6 +17,7 @@ export default function EditProject() {
   const [estimatedPrice, setEstimatedPrice] = useState('');
   const [projectUrl, setProjectUrl] = useState('');
   const [error, setError] = useState('');
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -71,6 +72,26 @@ export default function EditProject() {
         setError(error);
       }
 
+      console.log('File', file);
+
+      const { data: fileData, error: fileError } = await supabase
+      .storage
+      .from('project_images')
+      .upload(`/private/${file.name}`, file, {
+        cacheControl: '360000',
+        upsert: true,
+      });
+
+      console.log('File Data', fileData);
+      console.log('File Error', fileError.message);
+
+      const { data:getData, error: getError } = await supabase
+      .storage
+      .from('project_images')
+      .getPublicUrl('Pattern-Placeholder.png');
+
+      console.log('Image data', getData);
+
       // Clear form fields and file input
       setProjectName('');
       setProjectDescription('');
@@ -78,6 +99,7 @@ export default function EditProject() {
       setRowCount('');
       setEstimatedPrice('');
       setProjectUrl('');
+      setFile(null);
     } catch (error) {
       console.log(error.message);
     }
@@ -117,6 +139,9 @@ export default function EditProject() {
             
             <label htmlFor="link">Pattern Link</label>
             <input type="text" name='link' className="small_box" placeholder='www.etsy.com' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>
+
+            <label htmlFor="picture">Upload a Picture</label>
+            <input type='file' name='picture' onChange={(e) => setFile(e.target.files[0])}></input>
           </div>
           <div className="leftside">
             <button onClick={addProject}>Add Project</button>

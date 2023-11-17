@@ -11,6 +11,7 @@ const Home = () => {
     const [session, setSession] = useState(null);
     const [projects, setProjects] = useState(null);
     const [projectList, setProjectList] = useState(null);
+    const [imgLink, setImageLink] = useState(null);
     
     const formatTime = (time) => {
         const seconds = Math.floor((time / 1000) % 60);
@@ -41,27 +42,85 @@ const Home = () => {
                 .from('UserProjects')
                 .select('*')
                 .eq('userId', session.id)
+                
+                /* try {
+                    const try_link = await supabase
+                    .storage
+                    .from('project_images/private')
+                    .getPublicUrl(project.name);
 
-                setProjects(userProjects.data);
+                    console.log('In try for', project.name);
+                    console.log('Image link in try', img_link)
+                    setImageLink(try_link);
+                }
+                catch {
+                    //const img_src = 'https://poxfdvqxzpsmhcslibty.supabase.co/storage/v1/object/public/project_images/Pattern-Placeholder.png';
+                    const img_data = await supabase.storage
+                    .from('project_images')
+                    .getPublicUrl('Pattern-Placeholder.png');
+                    console.log('img link:', img_data.data.publicUrl);
+                    const img_link = img_data.data.publicUrl;
+                    setImageLink(img_link);
 
-                const img_src = 'https://poxfdvqxzpsmhcslibty.supabase.co/storage/v1/object/public/project_images/Pattern-Placeholder.png';
-                const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
-                console.log('img link:', img_link.data.publicUrl)
-
-                console.log('Image', img_src);
+                    //console.log('Image', img_src);
+                } */
 
                 
+                setProjects(userProjects.data);
 
-                let projectList = projects.map((project) => 
-                <li> <a href={`project-details/${project.id}`}>
-                    <h2><strong>{project.name}</strong></h2>
-                    <img src={img_link.data.publicUrl} alt={project.name}></img>
-                    <p>${project.estimatedPrice}</p>
-                    <a href={project.url} target="_blank">{project.name} Url</a>
-                    <p>Row Count: {project.rowCount}</p>
-                    <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
-                    </a>
-                </li>)
+                let projectList = await Promise.all(projects.map(async (project) => {
+                    try {
+                        const tryLink = await supabase
+                        .storage
+                        .from('project_images/private')
+                        .getPublicUrl(project.name);
+
+                        console.log('try link', tryLink.data.publicUrl);
+                        setImageLink(tryLink.data.publicUrl);
+
+                        async function displayPlaceholder(e) {
+                            const placholderLink = await supabase
+                            .storage
+                            .from('project_images')
+                            .getPublicUrl('Pattern-Placeholder.png')
+
+                            e.target.src = placholderLink.data.publicUrl;
+                        }
+                        
+                        return (
+                            <li> <a href={`project-details/${project.id}`}>
+                                <h2><strong>{project.name}</strong></h2>
+                                <img src={tryLink.data.publicUrl} alt={project.name} onError={displayPlaceholder}></img>
+                                <p>${project.estimatedPrice}</p>
+                                <a href={`https://${project.url}`} target="_blank" rel='noopener noreferrer'>{project.name} Url</a>
+                                <p>Row Count: {project.rowCount}</p>
+                                <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
+                                </a>
+                            </li>)
+
+                    } 
+                    catch {
+                        const img_data = await supabase
+                        .storage
+                        .from('project_images')
+                        .getPublicUrl('Pattern-Placeholder.png');
+
+                        console.log('catch link', img_data.data.publicUrl)
+                        setImageLink(img_data.data.publicUrl);
+
+                    
+                    return (
+                        <li> <a href={`project-details/${project.id}`}>
+                            <h2><strong>{project.name}</strong></h2>
+                            <img src={imgLink} alt={project.name} onError={displayPlaceholder}></img>
+                            <p>${project.estimatedPrice}</p>
+                            <a href={`https://${project.url}`} target="_blank" rel='noopener noreferrer'>{project.name} Url</a>
+                            <p>Row Count: {project.rowCount}</p>
+                            <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
+                            </a>
+                        </li>)
+                    }
+                }))
 
                 const newProject = <li>
                     <a href={'addproject'}>

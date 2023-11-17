@@ -3,7 +3,8 @@ import './LoadingScreen.css';
 const LoadingScreen = () => {
     return (
         <>
-        <h1>This is the loader screen.</h1>
+        <img className='loaderimage' src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
+        <h1>Please Wait</h1>
         </>
     )}
 

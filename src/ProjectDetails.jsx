@@ -22,14 +22,20 @@ const ProjectDetails = () => {
                     .eq('id', params.id);
 
                 const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
-
-                setLink(img_link.data.publicUrl);
-                console.log('image link set', img_link.data.publicUrl);
+                
     
                 if (error) {
                     console.error('Error fetching project:', error);
                 } else if (data && data.length > 0) {
                     setProject(data[0]);
+
+                    const imgLink = await supabase
+                    .storage
+                    .from('project_images/private')
+                    .getPublicUrl(data[0].name)
+
+                    setLink(imgLink.data.publicUrl);
+                    console.log('image link set', imgLink.data.publicUrl);
                 }
             } catch (error) {
                 console.error('Error fetching project:', error);
@@ -53,13 +59,22 @@ const ProjectDetails = () => {
         );
     };
 
+    async function displayPlaceholder(e) {
+        const placeholderLink = await supabase
+        .storage
+        .from('project_images')
+        .getPublicUrl('Pattern-Placeholder.png')
+
+        e.target.src = placeholderLink.data.publicUrl;
+    }
+
     return (
         <>
             <Navbar active='home'/>
             {project ? (
                 <div className='project'>
                     <h2><strong>{project.name}</strong></h2>
-                    <img src={img_link} alt={project.name}></img>
+                    <img src={img_link} alt={project.name} onError={displayPlaceholder}></img>
                     <p>${project.estimatedPrice}</p>
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>

@@ -33,9 +33,19 @@ const DeleteProject = () => {
                 console.error('Error fetching project:', error);
             }
         };
-
         fetchProject(); 
+
+        const deleteProject = async () =>  {
+            await supabase
+            .from('UserProjects')
+            .delete('*')
+            .ep('id', params.id);
+        };
+        deleteProject();
+
     }, [params.id]);
+
+
     return (
         <>
         <Navbar />
@@ -46,7 +56,7 @@ const DeleteProject = () => {
                 <img src={img_link} alt={project.name}></img>
                 <p></p>
                 <p></p>
-                <button>Confirm</button>
+                <button onClick = {deleteProject}>Confirm</button>
                 <button>Cancel</button>            
             </div>
         

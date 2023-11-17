@@ -15,6 +15,7 @@ import ProjectDetails from './ProjectDetails.jsx';
 import { SessionProvider } from './SessionProvider.jsx';
 import AddProject from './addproject.jsx';
 import EditProjectDetails from './EditProjectDetails.jsx';
+import EditAccount from './EditAccount.jsx';
 
 const root = document.getElementById('root');
 const app = (
@@ -32,6 +33,7 @@ const app = (
           <Route path="/project-details/:id" element={<ProjectDetails />} />
           <Route path="/editdetails/:id" element={<EditProjectDetails />} />
           <Route path="/deleteproject/:id" element={<DeleteProject />} />
+          <Route path="/editaccount" element={<EditAccount />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

@@ -1,0 +1,26 @@
+/*page used allow users to sign up, page 3 on canva */
+.signup {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    width: 40%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+button{
+    padding: 15em;
+    margin-top: 50px;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+}
+
+input{
+    padding: .1em;
+    margin: .15em;
+}

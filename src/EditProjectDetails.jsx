@@ -160,7 +160,7 @@ export default function EditProjectDetails() {
                     <input type="text" name="row" className='small_box' placeholder={project.rowCount} onChange={(e) => setRowCount(e.target.value)}/>
 
                     <label htmlFor="price">Estimated Price</label> 
-                    <a href={`/pricing/${project.id}`}>Need Help? Click Me</a>
+                    <a href={`/pricing`}>Need Help? Click Me</a>
                     <input type='text' name='price' className='small_box' placeholder={project.estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}/>
 
                     <label htmlFor="link">Pattern Link</label>

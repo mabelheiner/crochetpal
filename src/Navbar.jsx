@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from './Supabase';
 import './Navbar.css';
 
+
 const Navbar = (props) => {
     const [session , setSession] = useState(null);
     const [HamIsVisible, setHamIsVisible] = useState(true);

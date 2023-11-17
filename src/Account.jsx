@@ -5,11 +5,12 @@ import './Account.css';
 import Navbar from './Navbar';
 import Login from './Login';
 import { supabase } from './Supabase';
+import LoadingScreen from './LoadingScreen';
+
 
 const Account = () => {
     const [session, setSession] = useState(null);
 
-    useEffect(() => {
         const fetchUser = async () => {
         const curr_user = await supabase.auth.getSession();
         if (curr_user) {
@@ -20,11 +21,17 @@ const Account = () => {
             .select('*')
             .eq('email', user_data.email)
             setSession(user_info.data[0]);
+            
+            
         }
     }
 
-    fetchUser();
-    }, [])
+    if (session == null){
+        fetchUser();
+        return <LoadingScreen />
+    }
+
+    
 
     const handleLogout = async () => {
         try {
@@ -47,7 +54,9 @@ const Account = () => {
                 <li><strong>Username: </strong>{session.username}</li>
                 <li><strong>Email: </strong>{session.email}</li>
             </ul>
+            <a href={`/editaccount`}>Change Your Account Info Here</a>
             </div>
+            
             <button onClick={handleLogout}>Logout</button>
         
         </>

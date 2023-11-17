@@ -6,32 +6,33 @@ import Navbar from "./Navbar";
 import LoadingScreen from './LoadingScreen';
 
 
-export default function EditProjectDetails() {
+export default function EditAccount() {
     const [session, setSession] = useState(null);
     const [FirstName, setFirstName] = useState('');
     const [LastName, setLastName] = useState('');
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
 
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const curr_user = await supabase.auth.getSession();
-            if (curr_user) {
-                const user_data = curr_user.data.session.user;
     
-                const user_info = await supabase
-                .from('CurrentUsers')
-                .select('*')
-                .eq('email', user_data.email)
-                setSession(user_info.data[0]);
-            }
-        }
-        if (session == null){
-            fetchUser();
-            return <LoadingScreen />
-        }
-    }, [])
+
+    // useEffect(() => {
+    //     const fetchUser = async () => {
+    //         const curr_user = await supabase.auth.getSession();
+    //         if (curr_user) {
+    //             const user_data = curr_user.data.session.user;
+    
+    //             const user_info = await supabase
+    //             .from('CurrentUsers')
+    //             .select('*')
+    //             .eq('email', user_data.email)
+    //             setSession(user_info.data[0]);
+    //         }
+    //     }
+    //     if (session == null){
+    //         fetchUser();
+    //         return <LoadingScreen />
+    //     }
+    // }, [])
 
 
 //-----------------------------------------------------

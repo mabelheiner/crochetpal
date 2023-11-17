@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { supabase } from './Supabase';
 import './EditAccount.css';
 import Navbar from "./Navbar";
-import LoadingScreen from './LoadingScreen';
 
 
 export default function EditAccount() {
     const [session, setSession] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [FirstName, setFirstName] = useState('');
     const [LastName, setLastName] = useState('');
     const [user, setUser] = useState('');
@@ -15,24 +15,56 @@ export default function EditAccount() {
 
     
 
-    // useEffect(() => {
-    //     const fetchUser = async () => {
-    //         const curr_user = await supabase.auth.getSession();
-    //         if (curr_user) {
-    //             const user_data = curr_user.data.session.user;
+    useEffect(() => {
+        const fetchUser = async () => {
+            try{
+            const curr_user = await supabase.auth.getSession();
+            if (curr_user) {
+                const user_data = curr_user.data.session.user;
     
-    //             const user_info = await supabase
-    //             .from('CurrentUsers')
-    //             .select('*')
-    //             .eq('email', user_data.email)
-    //             setSession(user_info.data[0]);
-    //         }
-    //     }
-    //     if (session == null){
-    //         fetchUser();
-    //         return <LoadingScreen />
-    //     }
-    // }, [])
+                const user_info = await supabase
+                .from('CurrentUsers')
+                .select('*')
+                .eq('email', user_data.email)
+                setSession(user_info.data[0]);
+            }
+        } 
+        catch (error) {
+            console.error('Error fetching user:', error);
+            setLoading(false); // Set loading to false in case of an error
+        }
+    };
+
+    if (session == null) {
+        fetchUser();
+    }
+    
+    }, [session]);
+
+    const saveUser = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('CurrentUsers')
+                .update([
+                    {
+                        firstName: firstName || session.firstName,
+                        lastName: lastName || session.lastName,
+                        username: username || session.username,
+                        email: email || session.email,
+                    },
+                ])
+                .eq('email', session.email);
+
+            if (error) {
+                console.log(error.message);
+            } else {
+                console.log('User info saved');
+                setSession(data[0]);
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
 
 //-----------------------------------------------------
@@ -47,11 +79,11 @@ export default function EditAccount() {
                 <>
                 <div className='editers'>
                     <div className='text-boxes'>
-                    <label htmlFor="name1">Account First Name</label>
-                    <input type="text" name="firstname" className='small_box' placeholder={session.finame} onChange={(e) => setFirstName(e.target.value)}/>
+                    <label htmlFor="name1">First Name</label>
+                    <input type="text" name="firstname" className='small_box' placeholder={session.firstname} onChange={(e) => setFirstName(e.target.value)}/>
                     
-                    <label htmlFor="name1">Account Last Name</label>
-                    <input type="text" name="lastname" className='small_box' placeholder={session.name} onChange={(e) => setLastName(e.target.value)}/>
+                    <label htmlFor="name1">Last Name</label>
+                    <input type="text" name="lastname" className='small_box' placeholder={session.lastname} onChange={(e) => setLastName(e.target.value)}/>
                     
                     <label htmlFor="notes">Username</label>
                     <input type='text' name='user' className='small_box' placeholder={session.description} onChange={(e) => setUser(e.target.value)}/>
@@ -60,7 +92,7 @@ export default function EditAccount() {
                     <input type="text" name="email" className='small_box' placeholder={session.name} onChange={(e) => setEmail(e.target.value)}/>
 
                 </div>
-                <div className='leftside'>
+                <div className='saver'>
                     <button onClick={saveUser}>Save Account Info</button>
                 </div>
                 </div>

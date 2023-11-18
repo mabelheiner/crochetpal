@@ -79,9 +79,11 @@ const ProjectDetails = () => {
                     <a href={project.url} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>
                     <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
-                    <a href={`/project/${project.id}`}>Track Project</a>
-                    <a href={`/editdetails/${project.id}`}>Edit Project</a>
-                    <a href={`/deleteproject/${project.id}`}>Delete Project</a>
+                    <div className='button-list'>
+                        <button><a href={`/project/${project.id}`}>Track Project</a></button>
+                        <button><a href={`/editdetails/${project.id}`}>Edit Project</a></button>
+                        <button><a href={`/deleteproject/${project.id}`}>Delete Project</a></button>
+                    </div>
                 </div>
             ) : null}
         </>

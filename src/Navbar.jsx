@@ -9,6 +9,7 @@ const Navbar = (props) => {
     const [session , setSession] = useState(null);
     const [HamIsVisible, setHamIsVisible] = useState(true);
     const [NonHamIsVisible, setNonHamIsVisible] = useState(false);
+    const [NavIsVisible, setNavIsVisible] = useState(true);
     console.log('props.active:', props.active)
 
     useEffect(() => {
@@ -26,22 +27,34 @@ const Navbar = (props) => {
             }
         }
 
+    window.addEventListener('resize', hamVisibility);
+    hamVisibility();
     fetchUser();
     }, [])
     
     const hamVisibility = () => {
-        setHamIsVisible(!HamIsVisible);
-        console.log('ham', HamIsVisible);
-        console.log('non', NonHamIsVisible)
-        checkVisibility();
+        if (window.innerWidth > 657) {
+            setHamIsVisible(true);
+            setNonHamIsVisible(true);
+            setNavIsVisible(true);
+        }
+        else {
+            console.log('ham', HamIsVisible);
+            console.log('non', NonHamIsVisible);
+            checkVisibility();
+        }
     }
 
     const checkVisibility = () => {
         if (HamIsVisible == true) {
             setNonHamIsVisible(true);
+            setNavIsVisible(false);
+            setHamIsVisible(false);
         }
         else {
             setNonHamIsVisible(false);
+            setHamIsVisible(true);
+            setNavIsVisible(true);
         }
     }
     return (
@@ -56,7 +69,7 @@ const Navbar = (props) => {
                     <h2>CrochetPal</h2>
                 </div>
 
-            <ul className='non-ham' style={{display: NonHamIsVisible ? 'block': 'none'}}>
+            <ul className='non-ham' style={{display: NavIsVisible ? 'flex': 'none'}}>
 
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
@@ -68,8 +81,8 @@ const Navbar = (props) => {
         )}
         </ul>
 
-        <button className='ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'block': 'none'}}>&equiv;</button>
-        <button className='ex-ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'none': 'block'}}>X</button>
+        <button className='ham' onClick={hamVisibility} style={{display: HamIsVisible ? 'none': 'block', backgroundColor: '#720097'}}><span className='button-text'>&equiv;</span></button>
+        <button className='ex-ham' onClick={hamVisibility} style={{display: NonHamIsVisible ? 'none': 'block', backgroundColor: '#8901AF'}}><span className='button-text'>X</span></button>
 
         </nav>
 

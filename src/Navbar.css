@@ -69,13 +69,29 @@ li.active a{
     color: #A343FF;
 }
 
-@media only screen  and  (max-width:455px ){
+@media only screen  and  (max-width:657px ){
+    nav {
+        align-items: center;
+    }
     li{
         padding: .5em;
     }
 
-    .ham {
+    .button-text {
         font-size: 2em;
         font-weight: bolder;
     }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+    }
+
+    nav button {
+        margin-top: 1%;
+        height: fit-content
+    }
+
+    
 }

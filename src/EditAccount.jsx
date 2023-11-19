@@ -42,6 +42,19 @@ export default function EditAccount() {
     }, [session]);
 
     const saveUser = async () => {
+        if (FirstName == '') {
+            setFirstName(session.firstName);
+        }
+        if (LastName == '') {
+            setLastName(session.LastName);
+        }
+        if (user == '') {
+            setUser(session.user)
+        }
+        if (email == '') {
+            setEmail(session.email)
+        }
+
         try {
             const { data, error } = await supabase
                 .from('CurrentUsers')
@@ -62,7 +75,7 @@ export default function EditAccount() {
                 setSession(data[0]);
             }
         } catch (error) {
-            console.log(error.message);
+            console.error("Eroor saving user", error);
         }
     }
 

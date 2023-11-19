@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { supabase } from './Supabase';
 import './EditProjectDetails.css';
 import Navbar from "./Navbar";
+import LoadingScreen from './LoadingScreen';
 
 export default function EditProjectDetails() {
     const params = useParams();
@@ -18,6 +19,8 @@ export default function EditProjectDetails() {
     const [estimatedPrice, setEstimatedPrice] = useState('');
     const [projectUrl, setProjectUrl] = useState('');
     const [error, setError] = useState('');
+    const [file, setFile] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchProject = async () => {
@@ -32,9 +35,9 @@ export default function EditProjectDetails() {
                 } else if (data && data.length > 0) {
                     console.log('project', data[0])
                     setProject(data[0]);
-                    setHours(Math.floor((project.timeSpent / 3600000) % 60));
-                    setMinutes(Math.floor((project.timeSpent / 60000) % 60));
-                    setSeconds(Math.floor((project.timeSpent / 1000) % 60));
+                    setHours(Math.floor((data[0].timeSpent / 3600000) % 60));
+                    setMinutes(Math.floor((data[0].timeSpent / 60000) % 60));
+                    setSeconds(Math.floor((data[0].timeSpent / 1000) % 60));
                     formatTime(data[0].timeSpent);
                 }
             } catch (error) {
@@ -109,6 +112,38 @@ export default function EditProjectDetails() {
               console.log(error.message);
               setError(error);
             }
+
+            console.log('File input', file);
+            if (file != null) {
+                const {data: fileData, error: fileError} = await supabase
+                .storage
+                .from('project_images')
+                .upload(`/private/${projectName}`, file, {
+                    cacheControl: '360000',
+                    upsert: true,
+                });
+
+                if (fileError) {
+                    console.log('Error', error.message);
+                }
+
+                console.log('File data', fileData)
+
+                if (!fileError) {
+                    setIsLoading(true);
+                    setTimeout(() => {
+                        window.location.href = '/project-details/' + params.id;
+                    }, 2000)
+                    
+                }
+            }
+            else {
+                setIsLoading(true);
+                setTimeout(() => {
+                    window.location.href = '/project-details/' + params.id;
+                }, 2000)
+            }
+            
             console.log('project saved');
         } catch (error) {
             console.log(error.message);
@@ -131,7 +166,12 @@ export default function EditProjectDetails() {
             } catch (error) {
                 console.error('Error fetching project:', error);
             }
+            
         }
+    }
+
+    if (isLoading) {
+        return <LoadingScreen />;
     }
 
     return (
@@ -165,6 +205,9 @@ export default function EditProjectDetails() {
 
                     <label htmlFor="link">Pattern Link</label>
                     <input type='text' name='link' className='small_box' placeholder={project.url} onChange={(e) => setProjectUrl(e.target.value)}/>
+
+                    <label htmlFor="picture">Upload a Picture</label>
+                    <input type='file' name='picture' onChange={(e) => setFile(e.target.files[0])}></input>
                 </div>
                 <div className='leftside'>
                     <button onClick={saveProject}>Save Project</button>

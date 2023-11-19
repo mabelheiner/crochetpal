@@ -22,6 +22,23 @@ export default function EditProjectDetails() {
     const [file, setFile] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    const updateEstimatedPrice = async (projectId, newEstimatedPrice) => {
+        try {
+            const { data, error } = await supabase
+                .from('UserProjects')
+                .update({ estimatedPrice: newEstimatedPrice })
+                .eq('id', projectId);
+    
+            if (error) {
+                console.error('Error updating estimated price:', error);
+            } else {
+                console.log('Estimated price updated:', data);
+            }
+        } catch (error) {
+            console.error('Error updating estimated price:', error);
+        }
+    };
+
     useEffect(() => {
         const fetchProject = async () => {
             try {
@@ -63,21 +80,6 @@ export default function EditProjectDetails() {
     };
 
     const saveProject = async () => {       
-        if (projectName == '') {
-            setProjectName(project.name);
-        }
-        if (projectDescription == '') {
-            setProjectDescription(project.description);
-        }
-        if (projectUrl == '') {
-            setProjectUrl(project.url)
-        }
-        if (estimatedPrice == '') {
-            setEstimatedPrice(project.estimatedPrice)
-        }
-        if (rowCount == '') {
-            setRowCount(project.rowCount)
-        }
 
         const totalTimeInMilliseconds =
         parseInt(timeSeconds) * 1000 +
@@ -98,12 +100,12 @@ export default function EditProjectDetails() {
               .update([
                 {
                   userId: project.userId,
-                  url: projectUrl,
-                  description: projectDescription,
-                  name: projectName,
-                  estimatedPrice: estimatedPrice,
+                  url: projectUrl || project.url,
+                  description: projectDescription || project.description,
+                  name: projectName || project.name,
+                  estimatedPrice: estimatedPrice || project.estimatedPrice,
                   timeSpent: totalTimeInMilliseconds,
-                  rowCount: parseInt(rowCount),
+                  rowCount: parseInt(rowCount) || project.rowCount,
                 },
               ])
               .eq('id', params.id);

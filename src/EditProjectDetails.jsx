@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { supabase } from './Supabase';
 import './EditProjectDetails.css';
 import Navbar from "./Navbar";
-import LoadingScreen from './LoadingScreen';
+import EditProjectLoading from './EditProjectLoading';
 
 export default function EditProjectDetails() {
     const params = useParams();
@@ -117,16 +117,17 @@ export default function EditProjectDetails() {
 
             console.log('File input', file);
             if (file != null) {
+                console.log('project name', project.name)
                 const {data: fileData, error: fileError} = await supabase
                 .storage
                 .from('project_images')
-                .upload(`/private/${projectName}`, file, {
+                .upload(`/private/${project.name}`, file, {
                     cacheControl: '360000',
                     upsert: true,
                 });
 
                 if (fileError) {
-                    console.log('Error', error.message);
+                    console.log('Error', error);
                 }
 
                 console.log('File data', fileData)
@@ -134,21 +135,24 @@ export default function EditProjectDetails() {
                 if (!fileError) {
                     setIsLoading(true);
                     setTimeout(() => {
+                        setIsLoading(false);
                         window.location.href = '/project-details/' + params.id;
-                    }, 2000)
+                    }, 20000)
                     
                 }
             }
             else {
                 setIsLoading(true);
                 setTimeout(() => {
+                    setIsLoading(false);
                     window.location.href = '/project-details/' + params.id;
-                }, 2000)
+                }, 10000)
+                
             }
             
             console.log('project saved');
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
           }
 
         finally {
@@ -173,7 +177,7 @@ export default function EditProjectDetails() {
     }
 
     if (isLoading) {
-        return <LoadingScreen />;
+        return <EditProjectLoading />;
     }
 
     return (

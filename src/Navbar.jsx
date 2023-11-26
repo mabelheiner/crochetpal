@@ -33,7 +33,7 @@ const Navbar = (props) => {
     }, [])
     
     const hamVisibility = () => {
-        if (window.innerWidth > 657) {
+        if (window.innerWidth > 812) {
             setHamIsVisible(true);
             setNonHamIsVisible(true);
             setNavIsVisible(true);

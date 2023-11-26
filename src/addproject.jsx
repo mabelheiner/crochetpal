@@ -70,7 +70,7 @@ export default function EditProject() {
 
       if (error) {
         console.log(error.message);
-        setError(error);
+        alert('Error in uploading your project, please double check: \n1. All the information fields are filled out \n2. All the information is put in correctly (i.e. no numbers where integer are needed) \n\nPlease correct errors and try again.');
         return;
       }
 
@@ -124,11 +124,6 @@ export default function EditProject() {
       <>
         <Navbar active='editproject'/>
     <div class="content">
-      {error ? (
-        <div>
-          <p>{error.message}</p>
-        </div>
-      ): (<></>)}
     <div class="rightside">
           <div class="text-boxes">
             <label htmlFor="name">Project Name</label>

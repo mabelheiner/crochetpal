@@ -32,7 +32,7 @@ const ProjectDetails = () => {
                     const imgLink = await supabase
                     .storage
                     .from('project_images/private')
-                    .getPublicUrl(data[0].name)
+                    .getPublicUrl(data[0].id)
 
                     setLink(imgLink.data.publicUrl);
                     console.log('image link set', imgLink.data.publicUrl);

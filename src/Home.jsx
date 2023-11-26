@@ -49,7 +49,7 @@ const Home = () => {
                         const tryLink = await supabase
                         .storage
                         .from('project_images/private')
-                        .getPublicUrl(project.name);
+                        .getPublicUrl(project.id);
 
                         console.log('try link', tryLink.data.publicUrl);
                         setImageLink(tryLink.data.publicUrl);

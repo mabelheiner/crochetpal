@@ -18,6 +18,7 @@ export default function EditProject() {
   const [projectUrl, setProjectUrl] = useState('');
   const [error, setError] = useState('');
   const [file, setFile] = useState(null);
+  const [newId, setNewId] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -70,14 +71,30 @@ export default function EditProject() {
       if (error) {
         console.log(error.message);
         setError(error);
+        return;
       }
 
       console.log('File', file);
 
+      try {
+        const {data: projectData, error: projectError} = await supabase
+        .from ('UserProjects')
+        .select('id')
+        .order('id', {ascending: false})
+        .limit(1)
+
+        console.log('Latest Project Data', projectData[0].id);
+        setNewId(projectData[0].id);
+      }
+      catch {
+        console.log('Unable to fetch latest project');
+      }
+
+      console.log('New Id', newId);
       const { data: fileData, error: fileError } = await supabase
       .storage
       .from('project_images')
-      .upload(`/private/${projectName}`, file, {
+      .upload(`/private/${newId}`, file, {
         cacheControl: '360000',
         upsert: true,
       });

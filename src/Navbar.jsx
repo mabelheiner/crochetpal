@@ -10,7 +10,7 @@ const Navbar = (props) => {
     const [HamIsVisible, setHamIsVisible] = useState(true);
     const [NonHamIsVisible, setNonHamIsVisible] = useState(false);
     const [NavIsVisible, setNavIsVisible] = useState(true);
-    console.log('props.active:', props.active)
+    //console.log('props.active:', props.active)
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -39,8 +39,8 @@ const Navbar = (props) => {
             setNavIsVisible(true);
         }
         else {
-            console.log('ham', HamIsVisible);
-            console.log('non', NonHamIsVisible);
+            //console.log('ham', HamIsVisible);
+            //console.log('non', NonHamIsVisible);
             checkVisibility();
         }
     }
@@ -62,7 +62,7 @@ const Navbar = (props) => {
         <>
         {/* <h1>Crochet Pals</h1>
         <p><i>Crocheting together one step at a time!</i></p> */}
-        <div class="underline">
+        <div className="underline">
             <nav>
                 <div>
                     <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>

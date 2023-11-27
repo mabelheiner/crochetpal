@@ -35,16 +35,16 @@ const DeleteProject = () => {
         };
         fetchProject(); 
 
-        const deleteProject = async () =>  {
-            await supabase
-            .from('UserProjects')
-            .delete('*')
-            .ep('id', params.id);
-        };
-        deleteProject();
 
     }, [params.id]);
 
+    const deleteProject = async () =>  {
+        await supabase
+        .from('UserProjects')
+        .delete('*')
+        .eq('id', params.id);
+        //<a href="/account">Project Deleted, Return to Account</a>
+    };
 
     return (
         <>
@@ -56,8 +56,8 @@ const DeleteProject = () => {
                 <img src={img_link} alt={project.name}></img>
                 <p></p>
                 <p></p>
-                <button onClick = {deleteProject}>Confirm</button>
-                <button>Cancel</button>            
+                <button onClick={deleteProject}  href="/account">Confirm</button>
+                <button href="/account">Cancel</button>            
             </div>
         
         ) : null}        

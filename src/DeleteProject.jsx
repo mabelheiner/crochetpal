@@ -44,6 +44,7 @@ const DeleteProject = () => {
         .from('UserProjects')
         .delete('*')
         .eq('id', params.id);
+        <a href="/"></a>
         //<a href="/account">Project Deleted, Return to Account</a>
     };
 
@@ -57,8 +58,12 @@ const DeleteProject = () => {
                 <img src={img_link} alt={project.name}></img>
                 <p></p>
                 <p></p>
-                <button onClick={deleteProject}  href="/account">Confirm</button>
-                <button href="/account">Cancel</button>            
+                <a href="/">
+                <button onClick={deleteProject}>Confirm</button>
+                </a>
+                <a href="/">
+                    <button>Cancel</button>
+                </a>   
             </div>
         
         ) : null}   

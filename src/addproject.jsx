@@ -156,7 +156,9 @@ export default function EditProject() {
             <input type='file' name='picture' onChange={(e) => setFile(e.target.files[0])}></input>
           </div>
           <div className="leftside">
+            <a href='/'>
             <button onClick={addProject}>Add Project</button>
+            </a>
         </div>
         {/* <div className="imagebox-test">
           <div class ="Card">

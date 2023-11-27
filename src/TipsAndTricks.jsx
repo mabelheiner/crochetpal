@@ -41,6 +41,16 @@ const TipsAndTricks = () => {
           </p>
         )}
       </div>
+      <div className='question'>
+      <h2 onClick={() => toggleAnswer('Crators')} className='questionText'>Who Are the Creators of CrochetPals? <span className='drop'>{answersVisible['hooks'] ? '-' : '+'}</span></h2>
+        {answersVisible['hooks'] && (
+          <p>
+            We are so glad you asked! Crochet pal is made by 3 developers:
+            Mabel Heiner, Darcy Merilan, and Emma Ward.
+          </p>
+         
+        )}
+      </div>
 
       <Footer />
     </>

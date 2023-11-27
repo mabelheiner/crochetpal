@@ -79,7 +79,9 @@ export default function EditAccount() {
                             <input type="text" name="email" className='small_box' placeholder={session.email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className='saver'>
+                            <a href='account'>
                             <button onClick={saveUser}>Save Account Info</button>
+                            </a>
                         </div>
                     </div>
                 </>

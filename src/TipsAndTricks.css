@@ -1,0 +1,21 @@
+.question {
+    padding: 1em;
+}
+.question .questionText{
+    text-align: left;
+}
+
+.question .questionText span.drop {
+    float: right;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    background-color: black;
+    color: #8901AF;
+    text-align: center;
+}

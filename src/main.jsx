@@ -16,6 +16,7 @@ import { SessionProvider } from './SessionProvider.jsx';
 import AddProject from './addproject.jsx';
 import EditProjectDetails from './EditProjectDetails.jsx';
 import EditAccount from './EditAccount.jsx';
+import TipsAndTricks from './TipsAndTricks.jsx';
 
 const root = document.getElementById('root');
 const app = (
@@ -34,6 +35,7 @@ const app = (
           <Route path="/editdetails/:id" element={<EditProjectDetails />} />
           <Route path="/deleteproject/:id" element={<DeleteProject />} />
           <Route path="/editaccount" element={<EditAccount />} />
+          <Route path="/tips" element={<TipsAndTricks />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

@@ -3,6 +3,7 @@ import "./DeleteProject.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "./Supabase";
+import Footer from "./Footer";
 
 const DeleteProject = () => {
     const params = useParams();
@@ -60,7 +61,8 @@ const DeleteProject = () => {
                 <button href="/account">Cancel</button>            
             </div>
         
-        ) : null}        
+        ) : null}   
+        <Footer />     
         </>
         )
     }

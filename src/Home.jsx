@@ -6,6 +6,7 @@ import { supabase } from './Supabase';
 import Navbar from './Navbar';
 import Login from './Login';
 import LoadingScreen from './LoadingScreen';
+import Footer from './Footer';
 
 const Home = () => {
     const [session, setSession] = useState(null);
@@ -49,7 +50,7 @@ const Home = () => {
                         const tryLink = await supabase
                         .storage
                         .from('project_images/private')
-                        .getPublicUrl(project.name);
+                        .getPublicUrl(project.id);
 
                         console.log('try link', tryLink.data.publicUrl);
                         setImageLink(tryLink.data.publicUrl);
@@ -121,6 +122,8 @@ const Home = () => {
             <Login />
             </>
         )}
+
+        <Footer />
         </>
     )
 }

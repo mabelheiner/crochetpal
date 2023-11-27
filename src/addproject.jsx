@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from './Supabase';
 import './addproject.css';
 import Navbar from "./Navbar";
+import Footer from './Footer';
 
 export default function EditProject() {
   const [session, setSession] = useState(null);
@@ -18,6 +19,7 @@ export default function EditProject() {
   const [projectUrl, setProjectUrl] = useState('');
   const [error, setError] = useState('');
   const [file, setFile] = useState(null);
+  const [newId, setNewId] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -69,15 +71,31 @@ export default function EditProject() {
 
       if (error) {
         console.log(error.message);
-        setError(error);
+        alert('Error in uploading your project, please double check: \n1. All the information fields are filled out \n2. All the information is put in correctly (i.e. no numbers where integer are needed) \n\nPlease correct errors and try again.');
+        return;
       }
 
       console.log('File', file);
 
+      try {
+        const {data: projectData, error: projectError} = await supabase
+        .from ('UserProjects')
+        .select('id')
+        .order('id', {ascending: false})
+        .limit(1)
+
+        console.log('Latest Project Data', projectData[0].id);
+        setNewId(projectData[0].id);
+      }
+      catch {
+        console.log('Unable to fetch latest project');
+      }
+
+      console.log('New Id', newId);
       const { data: fileData, error: fileError } = await supabase
       .storage
       .from('project_images')
-      .upload(`/private/${projectName}`, file, {
+      .upload(`/private/${newId}`, file, {
         cacheControl: '360000',
         upsert: true,
       });
@@ -107,11 +125,6 @@ export default function EditProject() {
       <>
         <Navbar active='editproject'/>
     <div class="content">
-      {error ? (
-        <div>
-          <p>{error.message}</p>
-        </div>
-      ): (<></>)}
     <div class="rightside">
           <div class="text-boxes">
             <label htmlFor="name">Project Name</label>
@@ -154,6 +167,8 @@ export default function EditProject() {
         </div> */}
       </div> 
       </div> 
+
+      <Footer />
       </>
     )
   }

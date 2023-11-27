@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import './ProjectDetails.css';
 import { supabase } from './Supabase';
 import { useState, useEffect } from 'react';
+import Footer from './Footer';
 
 const ProjectDetails = () => {
     const params = useParams();
@@ -32,7 +33,7 @@ const ProjectDetails = () => {
                     const imgLink = await supabase
                     .storage
                     .from('project_images/private')
-                    .getPublicUrl(data[0].name)
+                    .getPublicUrl(data[0].id)
 
                     setLink(imgLink.data.publicUrl);
                     console.log('image link set', imgLink.data.publicUrl);
@@ -86,6 +87,7 @@ const ProjectDetails = () => {
                     </div>
                 </div>
             ) : null}
+            <Footer />
         </>
     );
 };

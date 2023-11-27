@@ -10,7 +10,7 @@ const Navbar = (props) => {
     const [HamIsVisible, setHamIsVisible] = useState(true);
     const [NonHamIsVisible, setNonHamIsVisible] = useState(false);
     const [NavIsVisible, setNavIsVisible] = useState(true);
-    console.log('props.active:', props.active)
+    //console.log('props.active:', props.active)
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -33,14 +33,14 @@ const Navbar = (props) => {
     }, [])
     
     const hamVisibility = () => {
-        if (window.innerWidth > 657) {
+        if (window.innerWidth > 812) {
             setHamIsVisible(true);
             setNonHamIsVisible(true);
             setNavIsVisible(true);
         }
         else {
-            console.log('ham', HamIsVisible);
-            console.log('non', NonHamIsVisible);
+            //console.log('ham', HamIsVisible);
+            //console.log('non', NonHamIsVisible);
             checkVisibility();
         }
     }
@@ -62,7 +62,7 @@ const Navbar = (props) => {
         <>
         {/* <h1>Crochet Pals</h1>
         <p><i>Crocheting together one step at a time!</i></p> */}
-        <div class="underline">
+        <div className="underline">
             <nav>
                 <div>
                     <img src='/images/CrochetPal-Logo.png' alt='CrochetPal'></img>
@@ -74,6 +74,7 @@ const Navbar = (props) => {
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
                 <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
+                <li className={props.active == 'tips' ? 'active': null}><a href='/tips'>Tips and Tricks</a></li>
         {session ? (
                 <li className={props.active == 'account' ? 'active': null}><a href="/account">Account</a></li>
         ):(

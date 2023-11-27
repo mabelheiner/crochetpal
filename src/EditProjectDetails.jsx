@@ -4,6 +4,7 @@ import { supabase } from './Supabase';
 import './EditProjectDetails.css';
 import Navbar from "./Navbar";
 import EditProjectLoading from './EditProjectLoading';
+import Footer from './Footer';
 
 export default function EditProjectDetails() {
     const params = useParams();
@@ -22,12 +23,12 @@ export default function EditProjectDetails() {
     const [file, setFile] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    const updateEstimatedPrice = async (projectId, newEstimatedPrice) => {
+    const updateEstimatedPrice = async (newEstimatedPrice) => {
         try {
             const { data, error } = await supabase
                 .from('UserProjects')
                 .update({ estimatedPrice: newEstimatedPrice })
-                .eq('id', projectId);
+                .eq('id', params.id);
     
             if (error) {
                 console.error('Error updating estimated price:', error);
@@ -94,6 +95,17 @@ export default function EditProjectDetails() {
         console.log('seconds', timeSeconds);
         console.log('Project Id', params.id);
 
+        console.log('Estimated Price: ', estimatedPrice)
+        if (estimatedPrice != "") {
+            console.log('Price update needed');
+            updateEstimatedPrice();
+        }
+        else {
+            console.log('No price update.')
+        }
+
+        console.log('Project Price', project.estimatedPrice)
+
         try {
             const { data, error } = await supabase
               .from('UserProjects')
@@ -121,7 +133,7 @@ export default function EditProjectDetails() {
                 const {data: fileData, error: fileError} = await supabase
                 .storage
                 .from('project_images')
-                .upload(`/private/${project.name}`, file, {
+                .upload(`/private/${params.id}`, file, {
                     cacheControl: '360000',
                     upsert: true,
                 });
@@ -136,7 +148,7 @@ export default function EditProjectDetails() {
                     setIsLoading(true);
                     setTimeout(() => {
                         setIsLoading(false);
-                        window.location.href = '/project-details/' + params.id;
+                        //window.location.href = '/project-details/' + params.id;
                     }, 20000)
                     
                 }
@@ -145,7 +157,7 @@ export default function EditProjectDetails() {
                 setIsLoading(true);
                 setTimeout(() => {
                     setIsLoading(false);
-                    window.location.href = '/project-details/' + params.id;
+                    //window.location.href = '/project-details/' + params.id;
                 }, 10000)
                 
             }
@@ -220,6 +232,8 @@ export default function EditProjectDetails() {
                 </div>
                 </div>
             ) : null}
+
+        <Footer />
         </>
     );
 }

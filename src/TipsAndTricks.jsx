@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import './TipsAndTricks.css';
+import Footer from './Footer';
 
 const TipsAndTricks = () => {
   const [answersVisible, setAnswersVisible] = useState({});
@@ -40,6 +41,8 @@ const TipsAndTricks = () => {
           </p>
         )}
       </div>
+
+      <Footer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { supabase } from './Supabase';
 import './EditProjectDetails.css';
 import Navbar from "./Navbar";
 import EditProjectLoading from './EditProjectLoading';
+import Footer from './Footer';
 
 export default function EditProjectDetails() {
     const params = useParams();
@@ -231,6 +232,8 @@ export default function EditProjectDetails() {
                 </div>
                 </div>
             ) : null}
+
+        <Footer />
         </>
     );
 }

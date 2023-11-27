@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import './ProjectDetails.css';
 import { supabase } from './Supabase';
 import { useState, useEffect } from 'react';
+import Footer from './Footer';
 
 const ProjectDetails = () => {
     const params = useParams();
@@ -86,6 +87,7 @@ const ProjectDetails = () => {
                     </div>
                 </div>
             ) : null}
+            <Footer />
         </>
     );
 };

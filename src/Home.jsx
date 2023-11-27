@@ -6,6 +6,7 @@ import { supabase } from './Supabase';
 import Navbar from './Navbar';
 import Login from './Login';
 import LoadingScreen from './LoadingScreen';
+import Footer from './Footer';
 
 const Home = () => {
     const [session, setSession] = useState(null);
@@ -121,6 +122,8 @@ const Home = () => {
             <Login />
             </>
         )}
+
+        <Footer />
         </>
     )
 }

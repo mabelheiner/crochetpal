@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { supabase } from './Supabase';
 import './EditAccount.css';
 import Navbar from "./Navbar";
+import Footer from './Footer';
 
 export default function EditAccount() {
     const [session, setSession] = useState(null);
@@ -83,6 +84,8 @@ export default function EditAccount() {
                     </div>
                 </>
             ) : null}
+
+        <Footer />
         </>
     );
 }

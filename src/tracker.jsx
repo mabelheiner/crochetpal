@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import Stopwatch from "./Stopwatch";
 import RowCounter from "./RowCounter";
 import { supabase } from "./Supabase";
+import Footer from "./Footer";
 import './tracker.css';
 
 const Project = () => {
@@ -52,7 +53,8 @@ const Project = () => {
                 <RowCounter current_project={project}/>
             </div>
 
-        ) : null}        
+        ) : null}  
+        <Footer />      
         </>
     )
 }

@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import { supabase } from './Supabase';
 import LoadingScreen from './LoadingScreen';
-
+import Footer from './Footer';
 
 const Account = () => {
     const [session, setSession] = useState(null);
@@ -59,6 +59,7 @@ const Account = () => {
             
             <button onClick={handleLogout}>Logout</button>
         
+        <Footer />
         </>
         ): (
             <Login />

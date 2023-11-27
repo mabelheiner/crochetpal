@@ -166,6 +166,8 @@ export default function EditProject() {
         </div> */}
       </div> 
       </div> 
+
+      <Footer />
       </>
     )
   }

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from './Supabase';
 import './addproject.css';
 import Navbar from "./Navbar";
+import Footer from './Footer';
 
 export default function EditProject() {
   const [session, setSession] = useState(null);

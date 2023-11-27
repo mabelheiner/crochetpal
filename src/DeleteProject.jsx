@@ -58,9 +58,7 @@ const DeleteProject = () => {
                 <img src={img_link} alt={project.name}></img>
                 <p></p>
                 <p></p>
-                <a href="/">
                 <button onClick={deleteProject}>Confirm</button>
-                </a>
                 <a href="/">
                     <button>Cancel</button>
                 </a>   

@@ -1,3 +1,19 @@
 
+.rotate-180 {
+    transform: rotate(180deg); /* Rotate the span element */
+}
   
-  
+.expanded {
+    transform: translateY(100%); /* Move the element down */
+}
+
+.question {
+    padding: 1em;
+}
+.question .questionText{
+    text-align: left;
+}
+
+.question .questionText span.drop {
+    float: right;
+}

@@ -148,7 +148,7 @@ export default function EditProjectDetails() {
                     setIsLoading(true);
                     setTimeout(() => {
                         setIsLoading(false);
-                        //window.location.href = '/project-details/' + params.id;
+                        
                     }, 20000)
                     
                 }
@@ -157,7 +157,7 @@ export default function EditProjectDetails() {
                 setIsLoading(true);
                 setTimeout(() => {
                     setIsLoading(false);
-                    //window.location.href = '/project-details/' + params.id;
+                    
                 }, 10000)
                 
             }

@@ -43,7 +43,7 @@ export default function EditAccount() {
                         firstName: FirstName || session.firstName,
                         lastName: LastName || session.lastName,
                         username: user || session.username,
-                        email: email || session.email,
+                        //email: email || session.email,
                     },
                 ])
                 .eq('email', session.email);
@@ -75,8 +75,8 @@ export default function EditAccount() {
                             <label htmlFor="notes">Username</label>
                             <input type='text' name='user' className='small_box' placeholder={session.username} onChange={(e) => setUser(e.target.value)}/>
 
-                            <label htmlFor="name1">Email Address</label>
-                            <input type="text" name="email" className='small_box' placeholder={session.email} onChange={(e) => setEmail(e.target.value)}/>
+                            {/* <label htmlFor="name1">Email Address</label>
+                            <input type="text" name="email" className='small_box' placeholder={session.email} onChange={(e) => setEmail(e.target.value)}/> */}
                         </div>
                         <div className='saver'>
                             <a href='account'>

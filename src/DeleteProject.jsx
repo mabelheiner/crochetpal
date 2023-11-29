@@ -44,8 +44,7 @@ const DeleteProject = () => {
         .from('UserProjects')
         .delete('*')
         .eq('id', params.id);
-        <a href="/"></a>
-        //<a href="/account">Project Deleted, Return to Account</a>
+        window.location.href = "/";
     };
 
     return (

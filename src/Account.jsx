@@ -7,6 +7,7 @@ import Login from './Login';
 import { supabase } from './Supabase';
 import LoadingScreen from './LoadingScreen';
 import Footer from './Footer';
+import SignUp from './SignUp';
 
 const Account = () => {
     const [session, setSession] = useState(null);
@@ -40,7 +41,9 @@ const Account = () => {
         } catch (error) {
             alert('Error logging out: ', error.message);
         }
+        window.location.href ="Login"
     }
+
     return (
         <>
         {session ? (

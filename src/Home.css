@@ -12,8 +12,11 @@ ul {
 
 ul.project-list li{
     border: 1px solid #8900af;
+    border-radius: 10%;
     margin: 1em;
     width: 200px;
+    background-color: #e69bfd;
+    
 }
 
 ul.project-list p.plus{

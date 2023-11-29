@@ -47,10 +47,12 @@ const Project = () => {
         <Navbar active='project'/>
         {project ? (
             <div className='track'>
+                <br></br>
                 <h1><strong>{project.name}</strong></h1>
                 <img src={img_link} alt={project.name}></img>
                 <Stopwatch current_project={project}/>
                 <RowCounter current_project={project}/>
+                <button className='linkToProjectDetails'><a href={`/project-details/${params.id}`}>Back to Project Details</a></button>
             </div>
 
         ) : null}  

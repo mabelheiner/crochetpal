@@ -33,7 +33,7 @@ const Navbar = (props) => {
     }, [])
     
     const hamVisibility = () => {
-        if (window.innerWidth > 812) {
+        if (window.innerWidth > 710) {
             setHamIsVisible(true);
             setNonHamIsVisible(true);
             setNavIsVisible(true);
@@ -72,7 +72,6 @@ const Navbar = (props) => {
             <ul className='non-ham' style={{display: NavIsVisible ? 'flex': 'none'}}>
 
                 <li className={props.active == 'home' ? 'active': null}><a href="/">Home</a></li>
-                <li className={props.active == 'editproject' ? 'active': null}><a href="/addproject">Add Project</a></li>
                 <li className={props.active == 'pricing' ? 'active': null}><a href="/pricing">Pricing</a></li>
                 <li className={props.active == 'tips' ? 'active': null}><a href='/tips'>Tips and Tricks</a></li>
         {session ? (

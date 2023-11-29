@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import './Pricing.css';
 import Navbar from "./Navbar";
 import "./index.css";
+import Footer from './Footer';
 
 export default function Pricing() {
   const [tax, setTax] = useState("");
@@ -82,6 +83,7 @@ export default function Pricing() {
         
         </div>
       </div>
+      <Footer />
     </>
   );
 }

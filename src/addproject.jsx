@@ -124,8 +124,11 @@ export default function EditProject() {
     return (
       <>
         <Navbar active='editproject'/>
+
     <div class="content">
     <div class="rightside">
+          <br></br>
+          <h1>Add a New Project</h1>
           <div class="text-boxes">
             <label htmlFor="name">Project Name</label>
             <input type="text" name='name' className="small_box" placeholder='Blanket' value={projectName} onChange={(e) => setProjectName(e.target.value)}></input>

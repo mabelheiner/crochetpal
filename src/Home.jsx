@@ -115,6 +115,8 @@ const Home = () => {
         </div>
 
         <Navbar active='home'/>
+        <br></br>
+        <h1>Your Projects</h1>
         <ul className='project-list'>{projectList}</ul>
         </>
         ) : (

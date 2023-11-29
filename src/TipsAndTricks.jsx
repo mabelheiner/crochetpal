@@ -16,6 +16,7 @@ const TipsAndTricks = () => {
   return (
     <>
       <Navbar active='tips' />
+      <br></br>
       <h1>Tips, Tricks, and Questions </h1>
 
       <div className='question'>        

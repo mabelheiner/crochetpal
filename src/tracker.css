@@ -20,3 +20,12 @@ img {
     width: 100px;
 }
 
+
+.linkToProjectDetails {
+    margin-top: 100px;
+}
+.linkToProjectDetails a {
+    color: white;
+    padding-right:15px;
+}
+

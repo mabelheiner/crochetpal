@@ -148,7 +148,7 @@ export default function EditProjectDetails() {
                     setIsLoading(true);
                     setTimeout(() => {
                         setIsLoading(false);
-                        //window.location.href = '/project-details/' + params.id;
+                        
                     }, 20000)
                     
                 }
@@ -157,7 +157,7 @@ export default function EditProjectDetails() {
                 setIsLoading(true);
                 setTimeout(() => {
                     setIsLoading(false);
-                    //window.location.href = '/project-details/' + params.id;
+                    
                 }, 10000)
                 
             }
@@ -218,7 +218,7 @@ export default function EditProjectDetails() {
                     <input type="text" name="row" className='small_box' placeholder={project.rowCount} onChange={(e) => setRowCount(e.target.value)}/>
 
                     <label htmlFor="price">Estimated Price</label> 
-                    <a href={`/pricing`}>Need Help? Click Me</a>
+                    <a href={`/pricing`} target='_ '>Need Help? Click Me</a>
                     <input type='text' name='price' className='small_box' placeholder={project.estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}/>
 
                     <label htmlFor="link">Pattern Link</label>

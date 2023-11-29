@@ -39,7 +39,8 @@ const EditProjectLoadingScreen = () => {
         return () => {
             clearInterval(messageInterval);
             clearInterval(dotsInterval);
-        };
+            window.location.href = '/project-details/' + params.id;
+        };        
     }, [messages.length]);
 
     return (

@@ -44,6 +44,8 @@ const DeleteProject = () => {
         .from('UserProjects')
         .delete('*')
         .eq('id', params.id);
+
+        //Return to home page.
         window.location.href = "/";
     };
 
@@ -54,7 +56,7 @@ const DeleteProject = () => {
             <div className='delete'>
              <h1>Are you sure you would like to delete this project?</h1>
               <h2><strong>{project.name}</strong></h2>
-                <img src={img_link} alt={project.name}></img>
+                <img id='projectImg' src={img_link} alt={project.name}></img>
                 <p></p>
                 <p></p>
                 <button onClick={deleteProject}>Confirm</button>

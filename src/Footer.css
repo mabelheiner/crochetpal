@@ -1,5 +1,6 @@
 .footer {
-    position: fixed;
+    position: bottom;
+    display: contents;
     left: 0;
     bottom: 0;
     top: auto;
@@ -7,4 +8,14 @@
     background-color: black;
     color: gray;
     text-align: center;
+    margin-top: 12px;
+}
+.footer p{
+    color: white;
+}
+
+.footer img{
+    width: 35px;
+    height: 35px;
+    margin: 10px;
 }

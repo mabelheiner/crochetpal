@@ -195,7 +195,10 @@ export default function EditProjectDetails() {
     return (
         <> 
             <Navbar active='home'/>                     
-
+            <br></br>
+            <div className='title'>
+                <h1>Edit Your Project Details here</h1>
+            </div>
             {project ? (
                 <div className='rightside'>
                     <div className='text-boxes'>

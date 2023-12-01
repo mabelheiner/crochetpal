@@ -61,7 +61,7 @@ const DeleteProject = () => {
                 <p></p>
                 <p></p>
                 <button onClick={deleteProject}>Confirm</button>
-                <a href="/">
+                <a href={`/project-details/${params.id}`}>
                     <button>Cancel</button>
                 </a>   
             </div>

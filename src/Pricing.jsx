@@ -28,6 +28,10 @@ export default function Pricing() {
   return (
     <>
       <Navbar active='pricing' />
+      <br></br>
+      <div className='title'>
+        <h1>Pricing</h1>
+      </div>
 
       <div class="form-container">
         <div class="whitebox">

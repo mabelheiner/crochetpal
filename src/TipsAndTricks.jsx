@@ -79,38 +79,43 @@ const TipsAndTricks = () => {
       <div className='question'>
       <h2 onClick={() => toggleAnswer('single_c')} className='questionText'>How to do a single crochet stitch?<span className='drop'>{answersVisible['single_c'] ? '-' : '+'}</span></h2>
         {answersVisible['single_c'] && (
-          <p>
-            Insert Here
-          </p>
+          <ol>
+            <li>Insert hook into stitch and pull up a loop. You should have two loops on your hook.</li>
+            <li>Yarn over and pull through both loops.</li>
+            <li>Continue to next stitch and repeat steps 1 and 2.</li>
+          </ol>
         )}
       </div>
         
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('double_c')} className='questionText'>How to do a double crochet stitch?<span className='drop'>{answersVisible['double_c'] ? '-' : '+'}</span></h2>
-        {answersVisible['double_c'] && (
-          <p>
-            Insert Here
-          </p>
+      <h2 onClick={() => toggleAnswer('half_c')} className='questionText'>How to do a half double crochet stitch?<span className='drop'>{answersVisible['half_c'] ? '-' : '+'}</span></h2>
+        {answersVisible['half_c'] && (
+          <ol>
+            <li>Yarn over.</li>
+            <li>Insert hook into stitch and pull up a loop.</li>
+            <li>Yarn over and pull through 3 loops.</li>
+            <li>Continue to next stitch and repeat steps 1 through 3.</li>
+          </ol>
         )}
       </div>
 
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('half_c')} className='questionText'>How to do a half double crochet stitch?<span className='drop'>{answersVisible['half_c'] ? '-' : '+'}</span></h2>
-        {answersVisible['half_c'] && (
-          <p>
-            Insert Here
-          </p>
+      <h2 onClick={() => toggleAnswer('double_c')} className='questionText'>How to do a double crochet stitch?<span className='drop'>{answersVisible['double_c'] ? '-' : '+'}</span></h2>
+        {answersVisible['double_c'] && (
+          <ol>
+            <li>Yarn over.</li>
+            <li>Insert hook into stitch and pull up a loop.</li>
+            <li>Yarn over and pull through the middle two loops.</li>
+            <li>Yarn over and pull through two loops. *You should have one loop left on your hook.</li>
+            <li>Continue to next stitch and repeat steps 1 through 5.</li>
+          </ol>
         )}
-      </div>
-
-      
+      </div>      
 
       <div className='question'>
       <h2 onClick={() => toggleAnswer('Tracking')} className='questionText'>Some Tracking tricks to keep in mind<span className='drop'>{answersVisible['Tracking'] ? '-' : '+'}</span></h2>
         {answersVisible['Tracking'] && (
-          <p>
-            Insert Here
-          </p>
+          <p>Check out the track project page on one of your<br></br><a href='/'>Projects</a><br></br>Just click on a project and click on the track project button!</p>
         )}
       </div>
       

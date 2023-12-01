@@ -113,14 +113,17 @@ const TipsAndTricks = () => {
       </div>      
 
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('Tracking')} className='questionText'>Some Tracking tricks to keep in mind<span className='drop'>{answersVisible['Tracking'] ? '-' : '+'}</span></h2>
+      <h2 onClick={() => toggleAnswer('Tracking')} className='questionText'>How do I track my projects?<span className='drop'>{answersVisible['Tracking'] ? '-' : '+'}</span></h2>
         {answersVisible['Tracking'] && (
-          <p>Check out the track project page on one of your<br></br><a href='/'>Projects</a><br></br>Just click on a project and click on the track project button!</p>
+          <p>Check out the track project page on one of your<br></br><a href='/'>Projects</a><br></br>Just click on a project and click on the track project button!
+          <br />The most important things to keep in mind are to track the time spent, the row that your on and what number stitch you're on.
+          <br />It is highly recommended that you use stitch markers to mark the beginning of your rounds if your are working in a round. Stitch markers can also help mark any number of stitches.
+          <br />For example, if you are working on a blanket that is 200 stitches wide and there is a pattern every 50 stitches, then you can place a stitch marker every 50 stitches to remember when to repeat the pattern.</p>
         )}
       </div>
       
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('Examples')} className='questionText'>Need some Inspiration, here are some examples!<span className='drop'>{answersVisible['Examples'] ? '-' : '+'}</span></h2>
+      <h2 onClick={() => toggleAnswer('Examples')} className='questionText'>Need some inspiration, here are some examples!<span className='drop'>{answersVisible['Examples'] ? '-' : '+'}</span></h2>
         {answersVisible['Examples'] && (
           <p>
             Insert Here

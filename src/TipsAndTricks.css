@@ -19,3 +19,13 @@
     color: #8901AF;
     text-align: center;
 }
+
+.question ol {
+    display: flex;
+    flex-direction: column;
+}
+
+.question ol li {
+    display: list-item;
+    list-style-position: inside;
+}

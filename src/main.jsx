@@ -17,6 +17,7 @@ import AddProject from './addproject.jsx';
 import EditProjectDetails from './EditProjectDetails.jsx';
 import EditAccount from './EditAccount.jsx';
 import TipsAndTricks from './TipsAndTricks.jsx';
+import Inspiration from './Inspiration.jsx';
 
 const root = document.getElementById('root');
 const app = (
@@ -36,6 +37,7 @@ const app = (
           <Route path="/deleteproject/:id" element={<DeleteProject />} />
           <Route path="/editaccount" element={<EditAccount />} />
           <Route path="/tips" element={<TipsAndTricks />} />
+          <Route path="/inspiration" element={<Inspiration />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>

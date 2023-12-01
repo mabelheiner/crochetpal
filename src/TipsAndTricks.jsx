@@ -125,9 +125,7 @@ const TipsAndTricks = () => {
       <div className='question'>
       <h2 onClick={() => toggleAnswer('Examples')} className='questionText'>Need some inspiration, here are some examples!<span className='drop'>{answersVisible['Examples'] ? '-' : '+'}</span></h2>
         {answersVisible['Examples'] && (
-          <p>
-            Insert Here
-          </p>
+          <a href='/inspiration'>Inspiration Page</a>
         )}
       </div>
 

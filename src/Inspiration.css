@@ -1,0 +1,18 @@
+.inspiration-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.inspiration-list div {
+    border: 1px solid #8900af;
+    border-radius: 10%;
+    margin: 1em;
+    width: 200px;
+    background-color: #e69bfd;
+    padding: 1em;
+}
+
+.inspiration-list img {
+    border: 1px solid black;
+}

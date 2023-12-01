@@ -28,4 +28,9 @@
 .question ol li {
     display: list-item;
     list-style-position: inside;
+    text-align: left;
+}
+
+.question p {
+    text-align: left;
 }

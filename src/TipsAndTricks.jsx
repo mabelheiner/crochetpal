@@ -20,7 +20,7 @@ const TipsAndTricks = () => {
       <h1>Tips, Tricks, and Questions </h1>
 
       <div className='question'>        
-        <h2 onClick={() => toggleAnswer('getStarted')} className='questionText'>How Do I Get Started? <span className='drop'>{answersVisible['getStarted'] ? '-' : '+'}</span></h2>
+        <h2 onClick={() => toggleAnswer('getStarted')} className='questionText'>How do I get started? <span className='drop'>{answersVisible['getStarted'] ? '-' : '+'}</span></h2>
         {answersVisible['getStarted'] && (
           <>
           <p>Everyone starts out a little differently, but here are some ideas to get you started:</p>
@@ -34,21 +34,21 @@ const TipsAndTricks = () => {
       </div>
 
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('yarn')} className='questionText'>What Yarn Should I Use? <span className='drop'>{answersVisible['yarn'] ? '-' : '+'}</span></h2>
+      <h2 onClick={() => toggleAnswer('yarn')} className='questionText'>What yarn should I use? <span className='drop'>{answersVisible['yarn'] ? '-' : '+'}</span></h2>
         {answersVisible['yarn'] && (
           <p>Find a yarn to match the colors and texture for the project that you want to create. One thing to keep in mind when finding yarn is the weight. On the package the yarn will have a weight typically between 3 and 7, this number describes how thick the yarn is. 3 is thin and 7 is super bulky. <br></br>Skeins with a higher number tend to be bigger as the yarn is thicker, this also means that your hook will be bigger. Thinner yarns often come in smaller skeins, but tend to have more yards. Pick whatever yarn you want, but make sure that your yarn matches your pattern.</p>
         )}
       </div>
 
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('hooks')} className='questionText'>What Hooks Should I Use? <span className='drop'>{answersVisible['hooks'] ? '-' : '+'}</span></h2>
+      <h2 onClick={() => toggleAnswer('hooks')} className='questionText'>What hook should I use? <span className='drop'>{answersVisible['hooks'] ? '-' : '+'}</span></h2>
         {answersVisible['hooks'] && (
           <p>As mentioned above, it is best to pick the hook that best matches your yarn skein/type. Thicker yarns will need thicker hooks and vice versa. <br></br>There is a lot more to picking a hook rather than just size, you may notice walking down the aisles of the craft store that many hooks have different shapes, this is because people all hold their crochet hooks differently and our hands are all the same shape. I recommend that you start with the cheapest and practice until you have a specific way you like to hold the hook and yarn, then test all the different hooks until you find your perfect match!</p>
         )}
       </div>
 
       <div className='question'>
-      <h2 onClick={() => toggleAnswer('holding')} className='questionText'>How to hold the Crochet Hook and the Yarn?<span className='drop'>{answersVisible['holding'] ? '-' : '+'}</span></h2>
+      <h2 onClick={() => toggleAnswer('holding')} className='questionText'>How to hold the crochet hook and the yarn?<span className='drop'>{answersVisible['holding'] ? '-' : '+'}</span></h2>
         {answersVisible['holding'] && (
           <p>There are a lot of different ways to hold the yarn and the hook, but in the end, just start crocheting and your hands will find what they like!</p>
         )}

@@ -3,11 +3,9 @@
 .account-info {
     display: flex;
     flex-direction: column;
-}
-
-.account-info {
     color: black;
 }
+
 .Account{
     display: flex;
     flex-direction: column;

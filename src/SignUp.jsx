@@ -26,9 +26,7 @@ const SignUp = () => {
                 });
             
                 if (error) {
-                    console.log("Error in signing up: ", error.message);
-                    setError(error);
-                    return;
+                    alert('Error in signing up, please try again.')
                 } else {
             
                 const { data: insertedData, error: insertError } = await supabase
@@ -42,20 +40,13 @@ const SignUp = () => {
                         }
                     ]);
                 }
-            
-                if (insertError) {
-                    console.log('Error in storing user table: ', insertError.message);
-                } else {
-                    console.log('User signed up and data inserted successfully!');
-                }
+                window.location.href = '/';
             } catch (error) {
-                console.log('Error: ', error.message);
-                setError(error);
+                alert('Error in signing up, please try again.')
             }
             
     } else {
-        const error = {message: 'Passwords do not match'};
-        setError(error);
+        alert("Passwords do not match!");
     }
     }
 

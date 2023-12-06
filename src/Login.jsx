@@ -23,8 +23,7 @@ const Login = () => {
                 password: userPassword,
             });
             if (error) {
-                console.error('Error logging in:', error);
-                setError(error)
+                alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email.')
             } else {
                 const curr_user = await supabase.auth.getSession();
                 const user_data = curr_user.data.session.user
@@ -42,8 +41,7 @@ const Login = () => {
                 setSession(user_info.data[0]);
             }
         } catch (error) {
-            console.error('Error:', error);
-            setError(error);
+            alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email.')
         }
     };
 
@@ -60,11 +58,6 @@ const Login = () => {
         <input type='email' placeholder='Email' value={userEmail} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={userPassword} onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleLogin}>Login</button>
-        {error ? (
-            <div>
-                <p>{error.message}</p>
-            </div>
-        ):(<></>)}
         <div className="test">
         <p>Need an account? <a href="signup">Register</a></p>
         </div> 

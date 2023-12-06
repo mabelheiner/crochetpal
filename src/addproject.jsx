@@ -150,7 +150,7 @@ export default function EditProject() {
             <input type="text" name='row' className="small_box" placeholder="1" value={rowCount} onChange={(e) => setRowCount(e.target.value)}></input>
             
             <label htmlFor="materials">Cost of Materials</label>
-            <input type="text" name='materials' className="small_box" placeholder="$10" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></input>
+            <input type="text" name='materials' className="small_box" placeholder="10" value={estimatedPrice} onChange={(e) => setEstimatedPrice(e.target.value)}></input>
             
             <label htmlFor="link">Pattern Link</label>
             <input type="text" name='link' className="small_box" placeholder='www.etsy.com' value={projectUrl} onChange={(e) => setProjectUrl(e.target.value)}></input>

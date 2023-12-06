@@ -121,13 +121,6 @@ const TipsAndTricks = () => {
           <br />For example, if you are working on a blanket that is 200 stitches wide and there is a pattern every 50 stitches, then you can place a stitch marker every 50 stitches to remember when to repeat the pattern.</p>
         )}
       </div>
-      
-      <div className='question'>
-      <h2 onClick={() => toggleAnswer('Examples')} className='questionText'>Need some inspiration, here are some examples!<span className='drop'>{answersVisible['Examples'] ? '-' : '+'}</span></h2>
-        {answersVisible['Examples'] && (
-          <a href='/inspiration'>Inspiration Page</a>
-        )}
-      </div>
 
       <div className='question'>
       <h2 onClick={() => toggleAnswer('creators')} className='questionText'>Who Are the Creators of CrochetPals? <span className='drop'>{answersVisible['creators'] ? '-' : '+'}</span></h2>
@@ -138,6 +131,10 @@ const TipsAndTricks = () => {
           </p>
          
         )}
+      </div>
+
+      <div className='question'>
+      <h2 onClick={() => toggleAnswer('Examples')} className='questionText'><a href='/inspiration'>Need some inspiration, here are some examples!</a></h2>
       </div>
 
       <Footer />

@@ -127,7 +127,26 @@ const TipsAndTricks = () => {
         {answersVisible['creators'] && (
           <p>
             We are so glad you asked! Crochet pal is made by 3 developers:
-            Mabel Heiner, Darcy Merilan, and Emma Ward.
+            Mabel Heiner, Darcy Merilan, and Emma Ward.<br></br>
+            <br></br>
+            Mabel Heiner: 
+            <br></br>
+            <br></br>
+
+            <br></br>
+            <br></br>
+            Darcy Merilan:
+            <br></br>
+            <br></br>
+            
+            <br></br>
+            <br></br>
+            Emma Ward:
+            <br></br>
+            <br></br>
+            
+            <br></br>
+            <br></br>
           </p>
          
         )}

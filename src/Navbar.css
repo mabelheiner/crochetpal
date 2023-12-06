@@ -86,11 +86,16 @@ li.active a{
         display: flex;
         flex-direction: column;
         font-size: 1em;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 10;
+        padding: 0;
     }
 
     nav button {
         margin-top: 1%;
-        height: fit-content
+        height: fit-content;
+        
     }
 
     

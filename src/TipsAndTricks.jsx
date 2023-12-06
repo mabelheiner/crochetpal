@@ -138,10 +138,10 @@ const TipsAndTricks = () => {
             Darcy Merilan:
             <br></br>
             <br></br>
-            Hello, My name is Darcy Merilan. I am a software enginner and an insipring project manager. 
-            When working on this website, my knowledge of making and using website coding languages was rust at best. 
-            However, i have come to learn and love designing this webpage and utilizing all my knowledge to
-            create a website i am proud of. <br></br> I enjoy Sleeping, reading stories and watching movies and tv shows, 
+            Hello, My name is Darcy Merilan. I am a software engineer and an inspiring project manager. 
+            When working on this website, my knowledge of making and using website coding languages was rusty at best. 
+            However, I have come to learn and love designing this webpage and utilizing all my knowledge to
+            create a website I am proud of. <br></br> I enjoy Sleeping, reading stories and watching movies and tv shows, 
             playing games, solving problems, but most importantly I LOVE hanging out with people and helping anyone in need.
             <br></br>
             <br></br>

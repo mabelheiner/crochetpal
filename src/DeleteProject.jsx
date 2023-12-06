@@ -23,13 +23,19 @@ const DeleteProject = () => {
 
                 const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
 
-                const imgLink = await supabase
-                    .storage
-                    .from('project_images/private')
-                    .getPublicUrl(data[0].id)
+                try {
+                    const imgLink = await supabase
+                        .storage
+                        .from('project_images/private')
+                        .getPublicUrl(data[0].id)
 
-                setLink(imgLink.data.publicUrl);
-                console.log('image link set', imgLink.data.publicUrl);
+                    setLink(imgLink.data.publicUrl);
+                    console.log('image link set', imgLink.data.publicUrl);
+                }
+                catch {
+                    const link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
+                    setLink(link);
+                }
     
                 if (error) {
                     console.error('Error fetching project:', error);
@@ -55,6 +61,15 @@ const DeleteProject = () => {
         window.location.href = "/";
     };
 
+    async function displayPlaceholder(e) {
+        const placeholderLink = await supabase
+        .storage
+        .from('project_images')
+        .getPublicUrl('Pattern-Placeholder.png')
+
+        e.target.src = placeholderLink.data.publicUrl;
+    }
+
     return (
         <>
         <Navbar />
@@ -62,7 +77,7 @@ const DeleteProject = () => {
             <div className='delete'>
              <h1>Are you sure you would like to delete this project?</h1>
               <h2><strong>{project.name}</strong></h2>
-                <img id='projectImg' src={img_link} alt={project.name}></img>
+                <img id='projectImg' src={img_link} alt={project.name} onError={displayPlaceholder}></img>
                 <p></p>
                 <p></p>
                 <button onClick={deleteProject}>Confirm</button>

@@ -71,7 +71,7 @@ export default function EditProject() {
 
       if (error) {
         console.log(error.message);
-        alert('Error in uploading your project, please double check: \n1. All the information fields are filled out \n2. All the information is put in correctly (i.e. no numbers where integer are needed) \n\nPlease correct errors and try again.');
+        alert('Error in uploading your project, please double check: \n1. All the information fields are filled out \n2. All the information is put in correctly (i.e. no numbers where integer are needed)\nNo special characters such as $, *, @\n\nPlease correct errors and try again.');
         return;
       }
 

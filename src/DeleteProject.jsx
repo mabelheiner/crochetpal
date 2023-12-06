@@ -23,8 +23,13 @@ const DeleteProject = () => {
 
                 const img_link = await supabase.storage.from('project_images').getPublicUrl('Pattern-Placeholder.png');
 
-                setLink(img_link.data.publicUrl);
-                console.log('image link set', img_link.data.publicUrl);
+                const imgLink = await supabase
+                    .storage
+                    .from('project_images/private')
+                    .getPublicUrl(data[0].id)
+
+                setLink(imgLink.data.publicUrl);
+                console.log('image link set', imgLink.data.publicUrl);
     
                 if (error) {
                     console.error('Error fetching project:', error);

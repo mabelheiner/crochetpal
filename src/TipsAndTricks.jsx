@@ -148,7 +148,10 @@ const TipsAndTricks = () => {
             Emma Ward:
             <br></br>
             <br></br>
-            
+            Hi, my name is Emma Ward. I am a software engineer, and I am working towards a career in designing and developing software.
+            This project was difficult for me, as my focus has been mainly on designing code, rather than websites. This project helped me
+            learn more about the front-end process, and helped me gain a greater appreciation for it. I enjoyed working on this project with
+            my team, and I am pleased with the result that we have brought forward.
             <br></br>
             <br></br>
           </p>

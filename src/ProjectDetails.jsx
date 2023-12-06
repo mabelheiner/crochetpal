@@ -77,7 +77,7 @@ const ProjectDetails = () => {
                     <h2><strong>{project.name}</strong></h2>
                     <img src={img_link} alt={project.name} onError={displayPlaceholder}></img>
                     <p>${project.estimatedPrice}</p>
-                    <a href={project.url} target="_blank">{project.name} Url</a>
+                    <a href={`https://${project.url}`} target="_blank">{project.name} Url</a>
                     <p>Row Count: {project.rowCount}</p>
                     <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
                     <div className='button-list'>

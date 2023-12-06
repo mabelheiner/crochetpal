@@ -38,6 +38,11 @@ export default function EditProject() {
   }, []);
 
   const addProject = async () => {
+
+    if (projectName == '' || projectDescription == '' || projectUrl == '' || timeHours == '' || timeMinutes == '' || timeSeconds == '' || rowCount == '' || estimatedPrice == '') {
+      alert('All fields must be filled in except the picture.')
+      return;
+    }
     console.log('Seconds', timeSeconds);
     console.log('Minutes', timeMinutes)
     console.log('Hours', timeHours);
@@ -86,28 +91,31 @@ export default function EditProject() {
 
         console.log('Latest Project Data', projectData[0].id);
         setNewId(projectData[0].id);
+
+        const { data: fileData, error: fileError } = await supabase
+        .storage
+        .from('project_images')
+        .upload(`/private/${projectData[0].id}`, file, {
+          cacheControl: '360000',
+          upsert: true,
+        });
+
+        console.log('File Data', fileData);
+
+        const { data:getData, error: getError } = await supabase
+        .storage
+        .from('project_images')
+        .getPublicUrl(projectData[0].id);
+  
+        console.log('Image data', getData);
+        
       }
       catch {
         console.log('Unable to fetch latest project');
       }
+      
 
-      console.log('New Id', newId);
-      const { data: fileData, error: fileError } = await supabase
-      .storage
-      .from('project_images')
-      .upload(`/private/${newId}`, file, {
-        cacheControl: '360000',
-        upsert: true,
-      });
 
-      console.log('File Data', fileData);
-
-      const { data:getData, error: getError } = await supabase
-      .storage
-      .from('project_images')
-      .getPublicUrl(projectName);
-
-      console.log('Image data', getData);
 
       // Clear form fields and file input
       setProjectName('');
@@ -118,8 +126,10 @@ export default function EditProject() {
       setProjectUrl('');
       setFile(null);
     } catch (error) {
-      console.log(error.message);
+      alert('Error in adding project, please try again.')
+      return;
     }
+    window.location.href = '/';
   };
     return (
       <>
@@ -159,9 +169,8 @@ export default function EditProject() {
             <input type='file' name='picture' onChange={(e) => setFile(e.target.files[0])}></input>
           </div>
           <div className="leftside">
-            <a href="/">
+            
             <button onClick={addProject}>Add Project</button>
-          </a>
         </div>
         {/* <div className="imagebox-test">
           <div class ="Card">

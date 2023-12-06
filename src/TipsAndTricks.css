@@ -9,17 +9,6 @@
     float: right;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    top: auto;
-    width: 100%;
-    background-color: black;
-    color: #8901AF;
-    text-align: center;
-}
-
 .question ol {
     display: flex;
     flex-direction: column;
@@ -29,10 +18,12 @@
     display: list-item;
     list-style-position: inside;
     text-align: left;
+    color: black;
 }
 
 .question p {
     text-align: left;
+    color: black;
 }
 
 .question a {
@@ -40,4 +31,5 @@
     padding: 0;
     margin: 0;
     text-decoration: underline;
+    
 }

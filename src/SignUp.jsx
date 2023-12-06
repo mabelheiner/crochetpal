@@ -40,7 +40,7 @@ const SignUp = () => {
                         }
                     ]);
                 }
-                window.location.href = '/';
+                window.location.href = '/login';
             } catch (error) {
                 alert('Error in signing up, please try again.')
             }

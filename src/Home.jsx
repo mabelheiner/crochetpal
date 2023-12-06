@@ -69,7 +69,7 @@ const Home = () => {
                                 <h2><strong>{project.name}</strong></h2>
                                 <img src={tryLink.data.publicUrl} alt={project.name} onError={displayPlaceholder}></img>
                                 <p>${project.estimatedPrice}</p>
-                                <a href={`https://${project.url}`} target="_blank" rel='noopener noreferrer'>{project.name} Url</a>
+                                <a href={project.url} target="_blank" rel='noopener noreferrer'>{project.name} Url</a>
                                 <p>Row Count: {project.rowCount}</p>
                                 <p>Time Spent: {formatTime(parseInt(project.timeSpent))}</p>
                                 </a>

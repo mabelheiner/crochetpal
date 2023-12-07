@@ -23,7 +23,7 @@ const Login = () => {
                 password: userPassword,
             });
             if (error) {
-                alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email.')
+                alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email. \n3. If you have not received a confirmation email, please check your spam folder.')
             } else {
                 const curr_user = await supabase.auth.getSession();
                 const user_data = curr_user.data.session.user
@@ -41,7 +41,7 @@ const Login = () => {
                 setSession(user_info.data[0]);
             }
         } catch (error) {
-            alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email.')
+            alert('Could not login, make sure that you are: \n1. Using the right email and password \n2. You have confirmed your email. \n3. If you have not received a confirmation email, please check your spam folder.')
         }
     };
 

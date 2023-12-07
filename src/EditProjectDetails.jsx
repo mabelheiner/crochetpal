@@ -227,7 +227,7 @@ export default function EditProjectDetails() {
                     <label htmlFor="link">Pattern Link</label>
                     <input type='text' name='link' className='small_box' placeholder={project.url} onChange={(e) => setProjectUrl(e.target.value)}/>
 
-                    <label htmlFor="picture">Upload a Picture</label>
+                    <label htmlFor="picture">Upload a Picture **Picture may take up to 5 minutes to change**</label>
                     <input type='file' name='picture' onChange={(e) => setFile(e.target.files[0])}></input>
                 </div>
                 <div className='leftside'>

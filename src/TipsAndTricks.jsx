@@ -132,16 +132,21 @@ const TipsAndTricks = () => {
             Mabel Heiner: 
             <br></br>
             <br></br>
+            Hello, my name is Mabel Heiner. I am a software engineer that focuses in web development. 
+            I have loved working on this project. I have learned so many new things when it comes to the ReactJS framework.
+            We are also using Supabase as a database and that has been really fun to learn about. I am so proud of what 
+            we have created and have planned many more features to include in the future. I enjoy crocheting and definitely 
+            plan on using this website to track my future projects. I also love reading and coding. 
 
             <br></br>
             <br></br>
             Darcy Merilan:
             <br></br>
             <br></br>
-            Hello, My name is Darcy Merilan. I am a software engineer and an inspiring project manager. 
+            Hello, my name is Darcy Merilan. I am a software engineer and an inspiring project manager. 
             When working on this website, my knowledge of making and using website coding languages was rusty at best. 
             However, I have come to learn and love designing this webpage and utilizing all my knowledge to
-            create a website I am proud of. <br></br> I enjoy Sleeping, reading stories and watching movies and tv shows, 
+            create a website I am proud of. <br></br> I enjoy sleeping, reading stories and watching movies and tv shows, 
             playing games, solving problems, but most importantly I LOVE hanging out with people and helping anyone in need.
             <br></br>
             <br></br>
